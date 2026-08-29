@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>River al Día | Portal Oficial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        river: {
+                            red: '#dc2626',
+                            dark: '#09090b',
+                            card: '#121216',
+                            border: '#27272a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-river-dark text-zinc-100 min-h-screen flex flex-col selection:bg-red-600 selection:text-white">
+
+   <nav class="w-full px-6 py-3 flex justify-between items-center border-b border-zinc-800 bg-zinc-950/85 backdrop-blur-md sticky top-0 z-50">
+        <div class="flex items-center">
+            <!-- Logo más grande sin recuadro -->
+            <a href="#" class="flex items-center">
+                <img src="Img/logo.png" alt="Logo River al Día" class="h-16 sm:h-20 w-auto object-contain brightness-0 invert opacity-95 hover:opacity-100 transition-opacity">
+            </a>
+        </div>
+        <div class="hidden sm:flex items-center gap-6 text-sm font-medium text-zinc-400">
+            <a href="#partido" class="hover:text-red-500 transition-colors">Partido & TV</a>
+            <a href="#plantel" class="hover:text-red-500 transition-colors">Posible Equipo & DT</a>
+            <a href="#tablas" class="hover:text-red-500 transition-colors">Tablas de Posiciones</a>
+            <a href="#comunidad" class="hover:text-red-500 transition-colors">Comunidad</a>
+        </div>
+        <a href="https://instagram.com/ana.mdq.ok" target="_blank" class="text-xs font-bold uppercase tracking-wider bg-red-600/10 text-red-500 border border-red-600/20 px-3.5 py-2 rounded-xl hover:bg-red-600 hover:text-white transition-all">
+            Instagram
+        </a>
+    </nav>
+
+    <header class="relative overflow-hidden py-16 px-6 border-b border-zinc-800/60 bg-gradient-to-b from-zinc-950 via-zinc-900/50 to-river-dark text-center">
+        <div class="absolute inset-0 bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:16px_16px] opacity-20 pointer-events-none"></div>
+        <div class="relative max-w-3xl mx-auto space-y-4">
+            <span class="inline-block bg-red-600/15 text-red-500 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full border border-red-600/20">
+                Ciclo Interino Ponzio - Portal del Hincha
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
+                La era del León en el <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-rose-700">Más Grande</span>
+            </h1>
+            <p class="text-zinc-400 text-base sm:text-lg max-w-xl mx-auto">
+                Toda la información tras la asunción de Leonardo Ponzio como DT interino, la previa, dónde verlo y las tablas actualizadas.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl w-full mx-auto my-12 px-6 flex flex-col gap-10">
+        
+        <section id="partido" class="scroll-mt-24 bg-zinc-900/80 border border-zinc-800/80 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-48 h-48 bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="flex items-center gap-3 mb-6 border-b border-zinc-800 pb-4">
+                <div class="w-10 h-10 rounded-xl bg-red-600/15 border border-red-600/30 flex items-center justify-center text-red-500 text-lg font-bold">⚽</div>
+                <div>
+                    <h2 class="text-lg font-bold text-white tracking-tight">Próximo Partido & Televisación</h2>
+                    <p class="text-xs text-zinc-400">Fecha 7 del Torneo Clausura</p>
+                </div>
+            </div>
+
+            <div class="bg-zinc-950/70 border border-zinc-800/80 rounded-2xl p-6 mb-6 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-red-500 mb-1 block">Enfrentamiento</span>
+                    <h3 class="text-2xl font-black text-white">Banfield vs. River Plate</h3>
+                </div>
+                <div class="flex gap-2">
+                    <span class="bg-red-600/20 border border-red-600/40 text-red-400 text-xs font-semibold px-3.5 py-2 rounded-xl">Domingo 30/8 - 15:00 hs</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                <div class="bg-zinc-950/40 border border-zinc-800/60 p-4 rounded-xl flex items-center gap-3">
+                    <span class="text-xl">🏟️</span>
+                    <div>
+                        <span class="block text-xs uppercase tracking-wider text-zinc-500 font-semibold">Estadio</span>
+                        <span class="text-sm font-medium text-zinc-200">Florencio Sola</span>
+                    </div>
+                </div>
+                <div class="bg-zinc-950/40 border border-zinc-800/60 p-4 rounded-xl flex items-center gap-3">
+                    <span class="text-xl">📺</span>
+                    <div>
+                        <span class="block text-xs uppercase tracking-wider text-zinc-500 font-semibold">Televisación</span>
+                        <span class="text-sm font-medium text-zinc-200">ESPN Premium (Pack Fútbol)</span>
+                    </div>
+                </div>
+                <div class="bg-zinc-950/40 border border-zinc-800/60 p-4 rounded-xl flex items-center gap-3">
+                    <span class="text-xl">📱</span>
+                    <div>
+                        <span class="block text-xs uppercase tracking-wider text-zinc-500 font-semibold">Streaming / Apps</span>
+                        <span class="text-sm font-medium text-zinc-200">Flow, DGO y Telecentro Play</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="plantel" class="scroll-mt-24 bg-zinc-900/80 border border-zinc-800/80 rounded-3xl p-6 sm:p-8 shadow-2xl">
+            <div class="flex items-center gap-3 mb-6 border-b border-zinc-800 pb-4">
+                <div class="w-10 h-10 rounded-xl bg-red-600/15 border border-red-600/30 flex items-center justify-center text-red-500 text-lg font-bold">📌</div>
+                <div>
+                    <h2 class="text-lg font-bold text-white tracking-tight">Cuerpo Técnico & Posible Equipo</h2>
+                    <p class="text-xs text-zinc-400">La conducción interina de Ponzio y alineación probable</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                <article class="bg-zinc-950/60 border border-zinc-800/80 border-l-4 border-l-red-600 p-5 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-red-500 uppercase tracking-wider block mb-1">Director Técnico Interino</span>
+                        <h3 class="font-bold text-white text-lg mb-2">Leonardo Ponzio</h3>
+                        <p class="text-sm text-zinc-400 leading-relaxed">Asume la conducción tras la salida del cuerpo técnico anterior para encauzar el rumbo futbolístico del equipo.</p>
+                    </div>
+                </article>
+
+                <article class="bg-zinc-950/60 border border-zinc-800/80 border-l-4 border-l-red-600 p-5 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-red-500 uppercase tracking-wider block mb-1">Ayudante de Campo</span>
+                        <h3 class="font-bold text-white text-lg mb-2">Jonatan Maidana</h3>
+                        <p class="text-sm text-zinc-400 leading-relaxed">Acompaña al León en el banco de suplentes como principal asistente técnico en este nuevo ciclo.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="bg-zinc-950/60 border border-zinc-800/80 rounded-2xl p-6">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="text-xl">📋</span>
+                    <h3 class="font-bold text-white text-base tracking-tight">Posible Formación Titular (Actualizada)</h3>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-zinc-300">
+                    <div class="space-y-2 bg-zinc-900/50 p-4 rounded-xl border border-zinc-800/60">
+                        <span class="text-xs font-bold text-red-500 uppercase tracking-wider block">Esquema Táctico</span>
+                        <p class="font-medium text-white text-base">4-4-2 / 4-3-1-2</p>
+                        <hr class="border-zinc-800">
+                        <span class="text-xs font-bold text-zinc-500 uppercase tracking-wider block pt-1">Arquero & Defensores</span>
+                        <ul class="text-xs space-y-1.5 text-zinc-200">
+                            <li>• <b>Arquero:</b> Santiago Beltrán</li>
+                            <li>• <b>Lateral Derecho:</b> Gonzalo Montiel</li>
+                            <li>• <b>Primer Central:</b> Lucas Martínez Quarta</li>
+                            <li>• <b>Segundo Central:</b> Nicolás Otamendi</li>
+                            <li>• <b>Lateral Izquierdo:</b> Marcos Acuña</li>
+                        </ul>
+                    </div>
+                    <div class="space-y-2 bg-zinc-900/50 p-4 rounded-xl border border-zinc-800/60">
+                        <span class="text-xs font-bold text-red-500 uppercase tracking-wider block">Mediocampistas & Delanteros</span>
+                        <ul class="text-xs space-y-1.5 text-zinc-200">
+                            <li>• <b>Mediocampista Central:</b> Aníbal Moreno</li>
+                            <li>• <b>Mediocampista Central:</b> Tobías Andrada</li>
+                            <li>• <b>Mediocampista Ofensivo / Extremo:</b> Tomás Galván</li>
+                            <li>• <b>Mediocampista Ofensivo:</b> Thiago Almada</li>
+                            <li>• <b>Delantero:</b> Ángel Correa</li>
+                            <li>• <b>Delantero:</b> Sebastián Driussi</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tablas" class="scroll-mt-24 space-y-8">
+            
+            <div class="bg-zinc-900/80 border border-zinc-800/80 rounded-3xl p-6 sm:p-8 shadow-2xl">
+                <div class="flex items-center gap-3 mb-6 border-b border-zinc-800 pb-4">
+                    <div class="w-10 h-10 rounded-xl bg-red-600/15 border border-red-600/30 flex items-center justify-center text-red-500 text-lg font-bold">🏆</div>
+                    <div>
+                        <h2 class="text-lg font-bold text-white tracking-tight">Torneo Clausura - Grupo A</h2>
+                        <p class="text-xs text-zinc-400">Posiciones actualizadas del Grupo A</p>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-zinc-300">
+                        <thead class="text-xs uppercase bg-zinc-950 text-zinc-400 border-b border-zinc-800">
+                            <tr>
+                                <th scope="col" class="px-4 py-3 rounded-l-lg">Pos</th>
+                                <th scope="col" class="px-4 py-3">Equipo</th>
+                                <th scope="col" class="px-4 py-3 text-center">Pts</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-zinc-800/60 text-xs sm:text-sm">
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">1</td><td class="px-4 py-3 text-zinc-300">Instituto</td><td class="px-4 py-3 text-center font-bold">13</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">2</td><td class="px-4 py-3 text-zinc-300">Gimnasia (M)</td><td class="px-4 py-3 text-center font-bold">12</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">3</td><td class="px-4 py-3 text-zinc-300">Vélez</td><td class="px-4 py-3 text-center font-bold">12</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">4</td><td class="px-4 py-3 text-zinc-300">Defensa</td><td class="px-4 py-3 text-center font-bold">11</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">5</td><td class="px-4 py-3 text-zinc-300">Independiente</td><td class="px-4 py-3 text-center font-bold">10</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">6</td><td class="px-4 py-3 text-zinc-300">Unión</td><td class="px-4 py-3 text-center font-bold">10</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">7</td><td class="px-4 py-3 text-zinc-300">Newell's</td><td class="px-4 py-3 text-center font-bold">10</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">8</td><td class="px-4 py-3 text-zinc-300">Riestra</td><td class="px-4 py-3 text-center font-bold">10</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">9</td><td class="px-4 py-3 text-zinc-300">Boca Jrs.</td><td class="px-4 py-3 text-center font-bold">10</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">10</td><td class="px-4 py-3 text-zinc-300">Platense</td><td class="px-4 py-3 text-center font-bold">8</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">11</td><td class="px-4 py-3 text-zinc-300">Lanús</td><td class="px-4 py-3 text-center font-bold">7</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">12</td><td class="px-4 py-3 text-zinc-300">San Lorenzo</td><td class="px-4 py-3 text-center font-bold">7</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">13</td><td class="px-4 py-3 text-zinc-300">Estudiantes</td><td class="px-4 py-3 text-center font-bold">6</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">14</td><td class="px-4 py-3 text-zinc-300">Central Córdoba</td><td class="px-4 py-3 text-center font-bold">6</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">15</td><td class="px-4 py-3 text-zinc-300">Talleres</td><td class="px-4 py-3 text-center font-bold">4</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="bg-zinc-900/80 border border-zinc-800/80 rounded-3xl p-6 sm:p-8 shadow-2xl">
+                <div class="flex items-center gap-3 mb-6 border-b border-zinc-800 pb-4">
+                    <div class="w-10 h-10 rounded-xl bg-red-600/15 border border-red-600/30 flex items-center justify-center text-red-500 text-lg font-bold">⚽</div>
+                    <div>
+                        <h2 class="text-lg font-bold text-white tracking-tight">Torneo Clausura - Grupo B</h2>
+                        <p class="text-xs text-zinc-400">Posiciones actualizadas del Grupo B (con River Plate)</p>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-zinc-300">
+                        <thead class="text-xs uppercase bg-zinc-950 text-zinc-400 border-b border-zinc-800">
+                            <tr>
+                                <th scope="col" class="px-4 py-3 rounded-l-lg">Pos</th>
+                                <th scope="col" class="px-4 py-3">Equipo</th>
+                                <th scope="col" class="px-4 py-3 text-center">Pts</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-zinc-800/60 text-xs sm:text-sm">
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">1</td><td class="px-4 py-3 text-zinc-300">Argentinos</td><td class="px-4 py-3 text-center font-bold">13</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">2</td><td class="px-4 py-3 text-zinc-300">Sarmiento</td><td class="px-4 py-3 text-center font-bold">12</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">3</td><td class="px-4 py-3 text-zinc-300">Tigre</td><td class="px-4 py-3 text-center font-bold">11</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">4</td><td class="px-4 py-3 text-zinc-300">Central</td><td class="px-4 py-3 text-center font-bold">11</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">5</td><td class="px-4 py-3 text-zinc-300">Belgrano</td><td class="px-4 py-3 text-center font-bold">10</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">6</td><td class="px-4 py-3 text-zinc-300">Atl. Tucumán</td><td class="px-4 py-3 text-center font-bold">9</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">7</td><td class="px-4 py-3 text-zinc-300">Barracas</td><td class="px-4 py-3 text-center font-bold">9</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">8</td><td class="px-4 py-3 text-zinc-300">Gimnasia</td><td class="px-4 py-3 text-center font-bold">9</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">9</td><td class="px-4 py-3 text-zinc-300">Huracán</td><td class="px-4 py-3 text-center font-bold">8</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">10</td><td class="px-4 py-3 text-zinc-300">Independiente Riv.</td><td class="px-4 py-3 text-center font-bold">8</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">11</td><td class="px-4 py-3 text-zinc-300">Banfield</td><td class="px-4 py-3 text-center font-bold">7</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">12</td><td class="px-4 py-3 text-zinc-300">Racing</td><td class="px-4 py-3 text-center font-bold">5</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">13</td><td class="px-4 py-3 text-zinc-300">Estudiantes RC</td><td class="px-4 py-3 text-center font-bold">5</td></tr>
+                            
+                            <tr class="bg-red-600/15 border border-red-600/40 font-semibold">
+                                <td class="px-4 py-3 font-extrabold text-red-500">14</td>
+                                <td class="px-4 py-3 text-white flex items-center gap-2">🔴⚪ River <span class="text-[10px] bg-red-600 text-white px-2 py-0.5 rounded-full font-bold">DT Interino: Ponzio | Ayudante: Maidana</span></td>
+                                <td class="px-4 py-3 text-center font-extrabold text-white">4</td>
+                            </tr>
+
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">15</td><td class="px-4 py-3 text-zinc-300">Aldosivi</td><td class="px-4 py-3 text-center font-bold">2</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="bg-zinc-900/80 border border-zinc-800/80 rounded-3xl p-6 sm:p-8 shadow-2xl">
+                <div class="flex items-center gap-3 mb-6 border-b border-zinc-800 pb-4">
+                    <div class="w-10 h-10 rounded-xl bg-red-600/15 border border-red-600/30 flex items-center justify-center text-red-500 text-lg font-bold">📊</div>
+                    <div>
+                        <h2 class="text-lg font-bold text-white tracking-tight">Tabla Anual Oficial - Posiciones y Copas</h2>
+                        <p class="text-xs text-zinc-400">Clasificación a Copa Libertadores y Copa Sudamericana</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-3 mb-6 text-xs font-semibold">
+                    <div class="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-3 py-1.5 rounded-lg">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Campeón / Libertadores
+                    </div>
+                    <div class="flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 text-amber-400 px-3 py-1.5 rounded-lg">
+                        <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> CONMEBOL Libertadores
+                    </div>
+                    <div class="flex items-center gap-2 bg-sky-500/10 border border-sky-500/30 text-sky-400 px-3 py-1.5 rounded-lg">
+                        <span class="w-2.5 h-2.5 rounded-full bg-sky-500"></span> CONMEBOL Sudamericana
+                    </div>
+                    <div class="flex items-center gap-2 bg-rose-500/10 border border-rose-500/30 text-rose-400 px-3 py-1.5 rounded-lg">
+                        <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span> Descenso
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-zinc-300">
+                        <thead class="text-xs uppercase bg-zinc-950 text-zinc-400 border-b border-zinc-800">
+                            <tr>
+                                <th scope="col" class="px-4 py-3 rounded-l-lg">Pos</th>
+                                <th scope="col" class="px-4 py-3">Equipo</th>
+                                <th scope="col" class="px-4 py-3 text-center">Pts</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-zinc-800/60 text-xs sm:text-sm">
+                            <tr class="bg-emerald-500/10 border-l-4 border-l-emerald-500"><td class="px-4 py-3 font-bold text-emerald-400">1</td><td class="px-4 py-3 font-semibold text-white">Independiente Riv.</td><td class="px-4 py-3 text-center font-bold">42</td></tr>
+                            <tr class="bg-amber-500/10 border-l-4 border-l-amber-500"><td class="px-4 py-3 font-bold text-amber-400">2</td><td class="px-4 py-3 font-semibold text-white">Argentinos</td><td class="px-4 py-3 text-center font-bold">42</td></tr>
+                            <tr class="bg-amber-500/10 border-l-4 border-l-amber-500"><td class="px-4 py-3 font-bold text-amber-400">3</td><td class="px-4 py-3 font-semibold text-white">Boca Jrs.</td><td class="px-4 py-3 text-center font-bold">40</td></tr>
+                            <tr class="bg-amber-500/10 border-l-4 border-l-amber-500"><td class="px-4 py-3 font-bold text-amber-400">4</td><td class="px-4 py-3 font-semibold text-white">Vélez</td><td class="px-4 py-3 text-center font-bold">40</td></tr>
+
+                            <tr class="bg-sky-500/10 border-l-4 border-l-sky-500"><td class="px-4 py-3 font-bold text-sky-400">5</td><td class="px-4 py-3 font-medium text-zinc-200">Central</td><td class="px-4 py-3 text-center font-bold">39</td></tr>
+                            <tr class="bg-sky-500/10 border-l-4 border-l-sky-500"><td class="px-4 py-3 font-bold text-sky-400">6</td><td class="px-4 py-3 font-medium text-zinc-200">Estudiantes</td><td class="px-4 py-3 text-center font-bold">37</td></tr>
+                            <tr class="bg-sky-500/10 border-l-4 border-l-sky-500"><td class="px-4 py-3 font-bold text-sky-400">7</td><td class="px-4 py-3 font-medium text-zinc-200">Belgrano</td><td class="px-4 py-3 text-center font-bold">36</td></tr>
+                            <tr class="bg-sky-500/10 border-l-4 border-l-sky-500"><td class="px-4 py-3 font-bold text-sky-400">8</td><td class="px-4 py-3 font-medium text-zinc-200">Gimnasia</td><td class="px-4 py-3 text-center font-bold">35</td></tr>
+                            <tr class="bg-sky-500/10 border-l-4 border-l-sky-500"><td class="px-4 py-3 font-bold text-sky-400">9</td><td class="px-4 py-3 font-medium text-zinc-200">Independiente</td><td class="px-4 py-3 text-center font-bold">34</td></tr>
+                            <tr class="bg-sky-500/10 border-l-4 border-l-sky-500"><td class="px-4 py-3 font-bold text-sky-400">10</td><td class="px-4 py-3 font-medium text-zinc-200">Instituto</td><td class="px-4 py-3 text-center font-bold">34</td></tr>
+
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">11</td><td class="px-4 py-3 text-zinc-300">River</td><td class="px-4 py-3 text-center font-bold">33</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">12</td><td class="px-4 py-3 text-zinc-300">Unión</td><td class="px-4 py-3 text-center font-bold">31</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">13</td><td class="px-4 py-3 text-zinc-300">Tigre</td><td class="px-4 py-3 text-center font-bold">31</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">14</td><td class="px-4 py-3 text-zinc-300">Lanús</td><td class="px-4 py-3 text-center font-bold">31</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">15</td><td class="px-4 py-3 text-zinc-300">Gimnasia (M)</td><td class="px-4 py-3 text-center font-bold">31</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">16</td><td class="px-4 py-3 text-zinc-300">Sarmiento</td><td class="px-4 py-3 text-center font-bold">31</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">17</td><td class="px-4 py-3 text-zinc-300">Huracán</td><td class="px-4 py-3 text-center font-bold">30</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">18</td><td class="px-4 py-3 text-zinc-300">Talleres</td><td class="px-4 py-3 text-center font-bold">30</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">19</td><td class="px-4 py-3 text-zinc-300">Barracas</td><td class="px-4 py-3 text-center font-bold">30</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">20</td><td class="px-4 py-3 text-zinc-300">Defensa</td><td class="px-4 py-3 text-center font-bold">30</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">21</td><td class="px-4 py-3 text-zinc-300">San Lorenzo</td><td class="px-4 py-3 text-center font-bold">29</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">22</td><td class="px-4 py-3 text-zinc-300">Racing</td><td class="px-4 py-3 text-center font-bold">26</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">23</td><td class="px-4 py-3 text-zinc-300">Banfield</td><td class="px-4 py-3 text-center font-bold">25</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">24</td><td class="px-4 py-3 text-zinc-300">Newell's</td><td class="px-4 py-3 text-center font-bold">25</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">25</td><td class="px-4 py-3 text-zinc-300">Platense</td><td class="px-4 py-3 text-center font-bold">24</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">26</td><td class="px-4 py-3 text-zinc-300">Atl. Tucumán</td><td class="px-4 py-3 text-center font-bold">23</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">27</td><td class="px-4 py-3 text-zinc-300">Central Córdoba</td><td class="px-4 py-3 text-center font-bold">22</td></tr>
+                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">28</td><td class="px-4 py-3 text-zinc-300">Riestra</td><td class="px-4 py-3 text-center font-bold">21</td></tr>
+                            <tr class="bg-rose-500/10 border-l-4 border-l-rose-500"><td class="px-4 py-3 font-bold text-rose-400">29</td><td class="px-4 py-3 font-medium text-zinc-200">Aldosivi</td><td class="px-4 py-3 text-center font-bold">10</td></tr>
+                            <tr class="bg-rose-500/10 border-l-4 border-l-rose-500"><td class="px-4 py-3 font-bold text-rose-400">30</td><td class="px-4 py-3 font-medium text-zinc-200">Estudiantes RC</td><td class="px-4 py-3 text-center font-bold">10</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-xs text-zinc-500 mt-4 text-center">Bajo el interinato de Ponzio, acompañado por Jonatan Maidana, el Millonario busca escalar posiciones en la tabla anual.</p>
+            </div>
+
+        </section>
+
+        <!-- SECCIÓN DE COMUNIDAD ACTUALIZADA CON TRES BOTONES (TRIVIA, INSTAGRAM Y CAFECITO) -->
+        <section id="comunidad" class="scroll-mt-24 bg-zinc-900/80 border border-zinc-800/80 rounded-3xl p-6 sm:p-8 shadow-2xl">
+            <div class="flex items-center gap-3 mb-6 border-b border-zinc-800 pb-4">
+                <div class="w-10 h-10 rounded-xl bg-red-600/15 border border-red-600/30 flex items-center justify-center text-red-500 text-lg font-bold">🚀</div>
+                <div>
+                    <h2 class="text-lg font-bold text-white tracking-tight">Comunidad y Accesos</h2>
+                    <p class="text-xs text-zinc-400">Interactuá, jugá y apoyá el proyecto</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <!-- Botón Trivia -->
+                <a href="https://tinyurl.com/sincassette-trivia" target="_blank" class="group relative bg-gradient-to-br from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 p-6 rounded-2xl shadow-lg shadow-red-600/20 transition-all hover:-translate-y-1 flex flex-col justify-between">
+                    <span class="text-2xl mb-4 block">🎮</span>
+                    <div>
+                        <h3 class="font-bold text-white text-base mb-1">Trivia</h3>
+                        <p class="text-xs text-red-100 opacity-90">Poné a prueba cuánto sabés.</p>
+                    </div>
+                </a>
+
+                <!-- Botón Instagram -->
+                <a href="https://instagram.com/ana.mdq.ok" target="_blank" class="group relative bg-gradient-to-br from-amber-500 via-rose-600 to-purple-700 hover:opacity-95 p-6 rounded-2xl shadow-lg transition-all hover:-translate-y-1 flex flex-col justify-between">
+                    <span class="text-2xl mb-4 block">📸</span>
+                    <div>
+                        <span class="font-bold text-white text-base mb-1 block">Instagram</span>
+                        <p class="text-xs text-zinc-100 opacity-90">Seguime para más novedades.</p>
+                    </div>
+                </a>
+
+                <!-- Botón Cafecito -->
+                <a href="https://cafecito.app/TU_USUARIO" target="_blank" class="group relative bg-gradient-to-br from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 p-6 rounded-2xl shadow-lg shadow-amber-600/20 transition-all hover:-translate-y-1 flex flex-col justify-between">
+                    <span class="text-2xl mb-4 block">☕</span>
+                    <div>
+                        <h3 class="font-bold text-white text-base mb-1">Cafecito</h3>
+                        <p class="text-xs text-amber-100 opacity-90">Invitame un cafecito para apoyar la web.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="w-full py-8 text-center text-xs text-zinc-500 border-t border-zinc-800/60 bg-zinc-950 mt-auto">
+        <p>Hecho por Ana Mdq</p>
+    </footer>
+
+</body>
+</html>
