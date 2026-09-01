@@ -55,10 +55,12 @@
 </head>
 <body class="bg-river-dark text-zinc-100 min-h-screen flex flex-col selection:bg-red-600 selection:text-white relative mesh-gradient">
 
+    <!-- Navegación -->
     <nav class="w-full px-4 sm:px-12 py-3 flex justify-between items-center border-b border-zinc-800/80 bg-zinc-950/90 backdrop-blur-2xl sticky top-0 z-50 shadow-2xl">
         <div class="flex items-center">
+            <!-- Logo ajustado (h-16 en celu para que se luzca más, h-20 en tablets, h-24 en PC) -->
             <a href="#" class="flex items-center group py-1">
-                <img src="Img/logo.png" alt="Logo Sin Cassette" class="h-12 sm:h-20 md:h-24 w-auto object-contain brightness-0 invert opacity-95 group-hover:opacity-100 transition-all">
+                <img src="Img/logo.png" alt="Logo Sin Cassette" class="h-16 sm:h-20 md:h-24 w-auto object-contain brightness-0 invert opacity-95 group-hover:opacity-100 transition-all">
             </a>
         </div>
         <div class="hidden md:flex items-center gap-8 text-xs font-bold tracking-widest uppercase text-zinc-400">
@@ -73,6 +75,7 @@
         </a>
     </nav>
 
+    <!-- Header Principal -->
     <header class="relative py-20 px-4 sm:px-6 border-b border-zinc-800/80 text-center overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(#3f3f46_1px,transparent_1px)] [background-size:28px_28px] opacity-10 pointer-events-none"></div>
         <div class="relative max-w-4xl mx-auto space-y-5">
@@ -88,8 +91,10 @@
         </div>
     </header>
 
+    <!-- Contenido Principal -->
     <main class="max-w-4xl w-full mx-auto my-8 px-4 sm:px-6 flex flex-col gap-8 relative z-10 box-border">
         
+        <!-- Próximo Partido -->
         <section id="partido" class="scroll-mt-28 glass-card border border-zinc-800/80 rounded-3xl p-5 sm:p-8 shadow-2xl glow-red relative overflow-hidden">
             <div class="flex items-center gap-3 mb-6 border-b border-zinc-800/80 pb-4">
                 <div class="w-10 h-10 rounded-xl bg-red-600/15 border border-red-600/30 flex items-center justify-center text-red-500 text-lg font-bold shadow-inner">📅</div>
@@ -131,6 +136,7 @@
             </div>
         </section>
 
+        <!-- Plantel & DT -->
         <section id="plantel" class="scroll-mt-28 glass-card border border-zinc-800/80 rounded-3xl p-5 sm:p-8 shadow-2xl">
             <div class="flex items-center gap-3 mb-6 border-b border-zinc-800/80 pb-4">
                 <div class="w-10 h-10 rounded-xl bg-red-600/15 border border-red-600/30 flex items-center justify-center text-red-500 text-lg font-bold shadow-inner">📌</div>
@@ -155,6 +161,7 @@
             </div>
         </section>
 
+        <!-- Mercado de Pases -->
         <section id="mercado" class="scroll-mt-28 glass-card border border-zinc-800/80 rounded-3xl p-5 sm:p-8 shadow-2xl">
             <div class="flex items-center gap-3 mb-6 border-b border-zinc-800/80 pb-4">
                 <div class="w-10 h-10 rounded-xl bg-red-600/15 border border-red-600/30 flex items-center justify-center text-red-500 text-lg font-bold shadow-inner">🔄</div>
@@ -183,8 +190,10 @@
             </div>
         </section>
 
+        <!-- Tablas de Posiciones -->
         <section id="tablas" class="scroll-mt-28 space-y-6">
             
+            <!-- Grupo A -->
             <div class="glass-card border border-zinc-800/80 rounded-3xl p-5 sm:p-8 shadow-2xl">
                 <div class="flex items-center gap-3 mb-6 border-b border-zinc-800/80 pb-4">
                     <div class="w-10 h-10 rounded-xl bg-red-600/15 border border-red-600/30 flex items-center justify-center text-red-500 text-lg font-bold shadow-inner">🏆</div>
@@ -219,6 +228,7 @@
                 </div>
             </div>
 
+            <!-- Grupo B -->
             <div class="glass-card border border-zinc-800/80 rounded-3xl p-5 sm:p-8 shadow-2xl">
                 <div class="flex items-center gap-3 mb-6 border-b border-zinc-800/80 pb-4">
                     <div class="w-10 h-10 rounded-xl bg-red-600/15 border border-red-600/30 flex items-center justify-center text-red-500 text-lg font-bold shadow-inner">⚽</div>
@@ -244,6 +254,7 @@
                             <tr><td class="px-3 py-2.5 text-zinc-500 font-bold">9</td><td class="px-3 py-2.5 text-zinc-300">Barracas Central</td><td class="px-3 py-2.5 text-center">9</td><td class="px-3 py-2.5 text-center">7</td><td class="px-3 py-2.5 text-center">-1</td></tr>
                             <tr><td class="px-3 py-2.5 text-zinc-500 font-bold">10</td><td class="px-3 py-2.5 text-zinc-300">Independiente Riv.</td><td class="px-3 py-2.5 text-center">8</td><td class="px-3 py-2.5 text-center">7</td><td class="px-3 py-2.5 text-center">-1</td></tr>
                             
+                            <!-- River Resaltado -->
                             <tr class="bg-red-950/40 border-l-4 border-l-red-600">
                                 <td class="px-3 py-2.5 font-bold text-red-500">11</td>
                                 <td class="px-3 py-2.5 text-white font-bold">River Plate</td>
@@ -262,6 +273,7 @@
             </div>
         </section>
 
+        <!-- Comunidad y Accesos -->
         <section id="comunidad" class="scroll-mt-28 glass-card border border-zinc-800/80 rounded-3xl p-5 sm:p-8 shadow-2xl">
             <div class="flex items-center gap-3 mb-6 border-b border-zinc-800/80 pb-4">
                 <div class="w-10 h-10 rounded-xl bg-red-600/15 border border-red-600/30 flex items-center justify-center text-red-500 text-lg font-bold shadow-inner">🚀</div>
@@ -294,6 +306,7 @@
 
     </main>
 
+    <!-- Footer -->
     <footer class="w-full py-6 text-center text-xs text-zinc-500 bg-zinc-950 mt-auto border-t border-zinc-800/80">
         <p>Hecho por Ana Mdq</p>
     </footer>
