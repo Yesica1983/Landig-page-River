@@ -25,109 +25,120 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: linear-gradient(135deg, rgba(24, 24, 27, 0.75) 0%, rgba(9, 9, 11, 0.85) 100%);
+            backdrop-filter: blur(12px);
+        }
+        .glow-red {
+            box-shadow: 0 0 40px -10px rgba(220, 38, 38, 0.15);
+        }
     </style>
 </head>
-<body class="bg-river-dark text-zinc-100 min-h-screen flex flex-col selection:bg-red-600 selection:text-white">
+<body class="bg-river-dark text-zinc-100 min-h-screen flex flex-col selection:bg-red-600 selection:text-white relative overflow-x-hidden">
 
-   <nav class="w-full px-4 sm:px-6 py-4 flex justify-between items-center border-b border-zinc-800 bg-zinc-950/85 backdrop-blur-md sticky top-0 z-50">
+    <!-- Ambient background glows -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-red-600/10 blur-[140px] pointer-events-none rounded-full"></div>
+    <div class="absolute top-[40%] left-[-10%] w-[500px] h-[500px] bg-rose-900/5 blur-[160px] pointer-events-none rounded-full"></div>
+
+   <nav class="w-full px-4 sm:px-8 py-4 flex justify-between items-center border-b border-zinc-800/80 bg-zinc-950/80 backdrop-blur-xl sticky top-0 z-50 transition-all">
         <div class="flex items-center">
-            <a href="#" class="flex items-center">
-                <img src="Img/logo.png" alt="Logo River al Día" class="h-20 sm:h-24 w-auto object-contain brightness-0 invert opacity-95 hover:opacity-100 transition-opacity">
+            <a href="#" class="flex items-center group">
+                <img src="Img/logo.png" alt="Logo River al Día" class="h-16 sm:h-20 w-auto object-contain brightness-0 invert opacity-95 group-hover:opacity-100 transition-opacity">
             </a>
         </div>
-        <div class="hidden sm:flex items-center gap-6 text-sm font-medium text-zinc-400">
+        <div class="hidden md:flex items-center gap-7 text-xs font-semibold tracking-wider uppercase text-zinc-400">
             <a href="#partido" class="hover:text-red-500 transition-colors">Próximo Partido</a>
-            <a href="#plantel" class="hover:text-red-500 transition-colors">Posible Equipo & DT</a>
+            <a href="#plantel" class="hover:text-red-500 transition-colors">Plantel & DT</a>
             <a href="#mercado" class="hover:text-red-500 transition-colors">Mercado de Pases</a>
-            <a href="#tablas" class="hover:text-red-500 transition-colors">Tablas de Posiciones</a>
+            <a href="#tablas" class="hover:text-red-500 transition-colors">Posiciones</a>
             <a href="#comunidad" class="hover:text-red-500 transition-colors">Comunidad</a>
         </div>
-        <a href="https://instagram.com/ana.mdq.ok" target="_blank" class="text-xs font-bold uppercase tracking-wider bg-red-600/10 text-red-500 border border-red-600/20 px-3.5 py-2 rounded-xl hover:bg-red-600 hover:text-white transition-all">
+        <a href="https://instagram.com/ana.mdq.ok" target="_blank" class="text-xs font-bold uppercase tracking-wider bg-red-600/10 text-red-500 border border-red-600/20 px-4 py-2 rounded-xl hover:bg-red-600 hover:text-white transition-all shadow-lg shadow-red-600/5">
             Instagram
         </a>
     </nav>
 
-    <header class="relative overflow-hidden py-16 px-6 border-b border-zinc-800/60 bg-gradient-to-b from-zinc-950 via-zinc-900/50 to-river-dark text-center">
-        <div class="absolute inset-0 bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:16px_16px] opacity-20 pointer-events-none"></div>
-        <div class="relative max-w-3xl mx-auto space-y-4">
-            <span class="inline-block bg-red-600/15 text-red-500 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full border border-red-600/20">
-                Ciclo Interino Ponzio - Portal del Hincha
-            </span>
-            <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
-                La era del León en el <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-rose-700">Más Grande</span>
+    <header class="relative py-20 px-6 border-b border-zinc-800/60 text-center">
+        <div class="absolute inset-0 bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:20px_20px] opacity-15 pointer-events-none"></div>
+        <div class="relative max-w-3xl mx-auto space-y-5">
+            <div class="inline-flex items-center gap-2 bg-red-600/10 text-red-500 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-red-600/20 shadow-inner">
+                <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span> Ciclo Interino Ponzio - Portal del Hincha
+            </div>
+            <h1 class="text-4xl sm:text-7xl font-black tracking-tight text-white leading-tight">
+                La era del León en el <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-500 to-red-600">Más Grande</span>
             </h1>
-            <p class="text-zinc-400 text-base sm:text-lg max-w-xl mx-auto">
-                Preparando el próximo encuentro en el Monumental bajo la conducción interina de Leonardo Ponzio. ¡Repasá toda la info, mercado de pases y tablas actualizadas!
+            <p class="text-zinc-400 text-base sm:text-lg max-w-xl mx-auto leading-relaxed font-normal">
+                Preparando el próximo encuentro en el Monumental bajo la conducción interina de Leonardo Ponzio. ¡Toda la info y tablas actualizadas!
             </p>
         </div>
     </header>
 
-    <main class="max-w-4xl w-full mx-auto my-12 px-6 flex flex-col gap-10">
+    <main class="max-w-4xl w-full mx-auto my-12 px-6 flex flex-col gap-10 relative z-10">
         
-        <section id="partido" class="scroll-mt-24 bg-zinc-900/80 border border-zinc-800/80 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden transition-all duration-300 hover:border-zinc-700">
-            <div class="absolute top-0 right-0 w-48 h-48 bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        <section id="partido" class="scroll-mt-28 glass-card border border-zinc-800/80 rounded-3xl p-6 sm:p-9 shadow-2xl glow-red relative overflow-hidden transition-all duration-300 hover:border-zinc-700">
+            <div class="absolute top-0 right-0 w-60 h-60 bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
             
-            <div class="flex items-center gap-3 mb-6 border-b border-zinc-800 pb-4">
-                <div class="w-10 h-10 rounded-xl bg-red-600/15 border border-red-600/30 flex items-center justify-center text-red-500 text-lg font-bold">📅</div>
+            <div class="flex items-center gap-3.5 mb-6 border-b border-zinc-800/80 pb-4">
+                <div class="w-11 h-11 rounded-2xl bg-red-600/10 border border-red-600/20 flex items-center justify-center text-red-500 text-lg font-bold shadow-inner">📅</div>
                 <div>
-                    <h2 class="text-lg font-bold text-white tracking-tight">Próximo Encuentro - Torneo Clausura</h2>
+                    <h2 class="text-lg font-extrabold text-white tracking-tight">Próximo Encuentro - Torneo Clausura</h2>
                     <p class="text-xs text-zinc-400">Fecha 8 | Se viene el partido en casa</p>
                 </div>
             </div>
 
-            <div class="bg-zinc-950/70 border border-zinc-800/80 rounded-2xl p-6 mb-6 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="bg-zinc-950/60 border border-zinc-800/80 rounded-2xl p-6 mb-6 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4 transition-all hover:border-zinc-700">
                 <div>
                     <span class="text-xs font-bold uppercase tracking-wider text-red-500 mb-1 block">Próximo Partido (Local)</span>
                     <h3 class="text-2xl font-black text-white">River Plate <span class="text-red-500">vs.</span> Independiente Rivadavia</h3>
                 </div>
-                <div class="flex items-center gap-2 bg-red-600/10 border border-red-600/30 px-4 py-2 rounded-xl">
-                    <span class="relative flex h-3 w-3">
+                <div class="flex items-center gap-2.5 bg-red-600/10 border border-red-600/30 px-4 py-2.5 rounded-xl shadow-sm">
+                    <span class="relative flex h-2.5 w-2.5">
                       <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
                     </span>
-                    <span class="text-red-400 text-xs font-semibold uppercase tracking-wider">Previa en marcha</span>
+                    <span class="text-red-400 text-xs font-bold uppercase tracking-wider">Previa en marcha</span>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="bg-zinc-950/40 border border-zinc-800/60 p-4 rounded-xl flex items-center gap-3">
+                <div class="bg-zinc-950/40 border border-zinc-800/50 p-4 rounded-2xl flex items-center gap-3.5 transition-all hover:bg-zinc-950/70">
                     <span class="text-xl">🏟️</span>
                     <div>
-                        <span class="block text-xs uppercase tracking-wider text-zinc-500 font-semibold">Estadio</span>
-                        <span class="text-sm font-medium text-zinc-200">Mâs Monumental</span>
+                        <span class="block text-[11px] uppercase tracking-wider text-zinc-500 font-bold">Estadio</span>
+                        <span class="text-sm font-semibold text-zinc-200">Mâs Monumental</span>
                     </div>
                 </div>
-                <div class="bg-zinc-950/40 border border-zinc-800/60 p-4 rounded-xl flex items-center gap-3">
+                <div class="bg-zinc-950/40 border border-zinc-800/50 p-4 rounded-2xl flex items-center gap-3.5 transition-all hover:bg-zinc-950/70">
                     <span class="text-xl">⏰</span>
                     <div>
-                        <span class="block text-xs uppercase tracking-wider text-zinc-500 font-semibold">Día y Horario</span>
-                        <span class="text-sm font-medium text-zinc-200">Domingo 6/9 - 19:15 hs</span>
+                        <span class="block text-[11px] uppercase tracking-wider text-zinc-500 font-bold">Día y Horario</span>
+                        <span class="text-sm font-semibold text-zinc-200">Domingo 6/9 - 19:15 hs</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="plantel" class="scroll-mt-24 bg-zinc-900/80 border border-zinc-800/80 rounded-3xl p-6 sm:p-8 shadow-2xl">
-            <div class="flex items-center gap-3 mb-6 border-b border-zinc-800 pb-4">
-                <div class="w-10 h-10 rounded-xl bg-red-600/15 border border-red-600/30 flex items-center justify-center text-red-500 text-lg font-bold">📌</div>
+        <section id="plantel" class="scroll-mt-28 glass-card border border-zinc-800/80 rounded-3xl p-6 sm:p-9 shadow-2xl">
+            <div class="flex items-center gap-3.5 mb-6 border-b border-zinc-800/80 pb-4">
+                <div class="w-11 h-11 rounded-2xl bg-red-600/10 border border-red-600/20 flex items-center justify-center text-red-500 text-lg font-bold shadow-inner">📌</div>
                 <div>
-                    <h2 class="text-lg font-bold text-white tracking-tight">Cuerpo Técnico & Base del Equipo</h2>
+                    <h2 class="text-lg font-extrabold text-white tracking-tight">Cuerpo Técnico & Base del Equipo</h2>
                     <p class="text-xs text-zinc-400">Conducción de Leonardo Ponzio</p>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                <article class="bg-zinc-950/60 border border-zinc-800/80 border-l-4 border-l-red-600 p-5 rounded-2xl flex flex-col justify-between transition-all duration-300 hover:border-red-500/50 hover:shadow-lg hover:shadow-red-600/10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <article class="bg-zinc-950/50 border border-zinc-800/70 border-l-4 border-l-red-600 p-5 rounded-2xl flex flex-col justify-between transition-all duration-300 hover:border-red-500/50 hover:translate-y-[-2px] hover:shadow-xl hover:shadow-red-600/5">
                     <div>
-                        <span class="text-xs font-bold text-red-500 uppercase tracking-wider block mb-1">Director Técnico Interino</span>
+                        <span class="text-[11px] font-bold text-red-500 uppercase tracking-wider block mb-1">Director Técnico Interino</span>
                         <h3 class="font-bold text-white text-lg mb-2">Leonardo Ponzio</h3>
                         <p class="text-sm text-zinc-400 leading-relaxed">Al mando del plantel profesional en este nuevo ciclo institucional y futbolístico.</p>
                     </div>
                 </article>
 
-                <article class="bg-zinc-950/60 border border-zinc-800/80 border-l-4 border-l-red-600 p-5 rounded-2xl flex flex-col justify-between transition-all duration-300 hover:border-red-500/50 hover:shadow-lg hover:shadow-red-600/10">
+                <article class="bg-zinc-950/50 border border-zinc-800/70 border-l-4 border-l-red-600 p-5 rounded-2xl flex flex-col justify-between transition-all duration-300 hover:border-red-500/50 hover:translate-y-[-2px] hover:shadow-xl hover:shadow-red-600/5">
                     <div>
-                        <span class="text-xs font-bold text-red-500 uppercase tracking-wider block mb-1">Ayudante de Campo</span>
+                        <span class="text-[11px] font-bold text-red-500 uppercase tracking-wider block mb-1">Ayudante de Campo</span>
                         <h3 class="font-bold text-white text-lg mb-2">Marcelo Escudero</h3>
                         <p class="text-sm text-zinc-400 leading-relaxed">Acompaña al León en la dirección técnica del equipo.</p>
                     </div>
@@ -136,128 +147,109 @@
         </section>
 
         <!-- Mercado de Pases -->
-        <section id="mercado" class="scroll-mt-24 bg-zinc-900/80 border border-zinc-800/80 rounded-3xl p-6 sm:p-8 shadow-2xl">
-            <div class="flex items-center gap-3 mb-6 border-b border-zinc-800 pb-4">
-                <div class="w-10 h-10 rounded-xl bg-red-600/15 border border-red-600/30 flex items-center justify-center text-red-500 text-lg font-bold">🔄</div>
+        <section id="mercado" class="scroll-mt-28 glass-card border border-zinc-800/80 rounded-3xl p-6 sm:p-9 shadow-2xl">
+            <div class="flex items-center gap-3.5 mb-6 border-b border-zinc-800/80 pb-4">
+                <div class="w-11 h-11 rounded-2xl bg-red-600/10 border border-red-600/20 flex items-center justify-center text-red-500 text-lg font-bold shadow-inner">🔄</div>
                 <div>
-                    <h2 class="text-lg font-bold text-white tracking-tight">Mercado de Pases</h2>
-                    <p class="text-xs text-zinc-400">Novelas de mercado, sondeos europeos y negociaciones en la defensa</p>
+                    <h2 class="text-lg font-extrabold text-white tracking-tight">Mercado de Pases</h2>
+                    <p class="text-xs text-zinc-400">Actualidad del plantel y sondeos de mercado</p>
                 </div>
             </div>
 
-            <div class="space-y-6">
-                <!-- Echeverri y Arambarri -->
-                <div class="bg-zinc-950/60 border border-zinc-800/80 rounded-2xl p-6 space-y-4 transition-all duration-300 hover:border-red-500/50 hover:shadow-lg hover:shadow-red-600/10">
-                    <span class="text-xs font-bold text-red-500 uppercase tracking-wider">Situación de Echeverri & Arambarri</span>
-                    <h3 class="font-bold text-white text-lg">El futuro del Diablito y sondeos por el uruguayo</h3>
+            <div class="space-y-5">
+                <div class="bg-zinc-950/50 border border-zinc-800/70 rounded-2xl p-6 space-y-3 transition-all duration-300 hover:border-zinc-700 hover:shadow-lg">
+                    <span class="text-[11px] font-bold text-red-500 uppercase tracking-wider">Panorama General</span>
+                    <h3 class="font-bold text-white text-base">Tratativas y sondeos habituales</h3>
                     <p class="text-sm text-zinc-300 leading-relaxed">
-                        Si bien existió la intención y el deseo del jugador de venir a préstamo por 10 meses, el <b>Manchester City</b> encauzó su paso al <b>Benfica</b> de Portugal. Por otra parte, <b>Mauro Arambarri</b>, quien arribó recientemente al Getafe, despertó interés y propuestas desde Europa, concretamente por parte del <b>Ajax</b>, aunque el tema sigue en tratativas.
-                    </p>
-                </div>
-
-                <!-- Martínez Quarta y ofertas de Bélgica -->
-                <div class="bg-zinc-950/60 border border-zinc-800/80 rounded-2xl p-6 space-y-4 transition-all duration-300 hover:border-red-500/50 hover:shadow-lg hover:shadow-red-600/10">
-                    <span class="text-xs font-bold text-red-500 uppercase tracking-wider">Último Momento / Zaga</span>
-                    <h3 class="font-bold text-white text-lg">Lucas Martínez Quarta: Interés de Bélgica y respaldo del León</h3>
-                    <p class="text-sm text-zinc-300 leading-relaxed">
-                        El defensor cuenta con propuestas concretas del fútbol de <b>Bélgica</b>, además de sondeos desde equipos de Arabia. Ante este escenario, <b>Leonardo Ponzio</b> le brindó su respaldo para que continúe en el plantel, mientras se evalúan las condiciones y los pasos a seguir en su situación contractual.
-                    </p>
-                </div>
-
-                <!-- Búsqueda de Refuerzos Defensivos -->
-                <div class="bg-zinc-950/60 border border-zinc-800/80 rounded-2xl p-6 space-y-4 transition-all duration-300 hover:border-red-500/50 hover:shadow-lg hover:shadow-red-600/10">
-                    <span class="text-xs font-bold text-red-500 uppercase tracking-wider">Objetivos Defensivos</span>
-                    <h3 class="font-bold text-white text-lg">Búsqueda de centrales y ofertas por Lautaro Rivero</h3>
-                    <p class="text-sm text-zinc-300 leading-relaxed">
-                        Con sondeos también llegados desde el fútbol europeo por <b>Lautaro Rivero</b>, la dirigencia acelera gestiones en el mercado. En carpeta figuran nombres como <b>Francisco Álvarez</b>, <b>Sheyko Studer</b> (de Independiente Rivadavia) y alternativas internacionales para blindar la defensa.
+                        Con el mercado en constante movimiento, se analizan las distintas opciones de refuerzos y salidas que circulan en el ambiente futbolístico, priorizando siempre la estabilidad del plantel profesional.
                     </p>
                 </div>
             </div>
         </section>
 
-        <section id="tablas" class="scroll-mt-24 space-y-8">
+        <section id="tablas" class="scroll-mt-28 space-y-8">
             
-            <div class="bg-zinc-900/80 border border-zinc-800/80 rounded-3xl p-6 sm:p-8 shadow-2xl">
-                <div class="flex items-center gap-3 mb-6 border-b border-zinc-800 pb-4">
-                    <div class="w-10 h-10 rounded-xl bg-red-600/15 border border-red-600/30 flex items-center justify-center text-red-500 text-lg font-bold">🏆</div>
+            <div class="glass-card border border-zinc-800/80 rounded-3xl p-6 sm:p-9 shadow-2xl">
+                <div class="flex items-center gap-3.5 mb-6 border-b border-zinc-800/80 pb-4">
+                    <div class="w-11 h-11 rounded-2xl bg-red-600/10 border border-red-600/20 flex items-center justify-center text-red-500 text-lg font-bold shadow-inner">🏆</div>
                     <div>
-                        <h2 class="text-lg font-bold text-white tracking-tight">Torneo Clausura - Grupo A</h2>
+                        <h2 class="text-lg font-extrabold text-white tracking-tight">Torneo Clausura - Grupo A</h2>
                         <p class="text-xs text-zinc-400">Posiciones actualizadas del Grupo A (Fecha 7)</p>
                     </div>
                 </div>
 
-                <div class="overflow-x-auto">
+                <div class="overflow-x-auto rounded-2xl border border-zinc-800/80 bg-zinc-950/40">
                     <table class="w-full text-left text-sm text-zinc-300">
-                        <thead class="text-xs uppercase bg-zinc-950 text-zinc-400 border-b border-zinc-800">
+                        <thead class="text-[11px] uppercase tracking-wider bg-zinc-950 text-zinc-400 border-b border-zinc-800 font-bold">
                             <tr>
-                                <th scope="col" class="px-4 py-3 rounded-l-lg">Pos</th>
-                                <th scope="col" class="px-4 py-3">Equipo</th>
-                                <th scope="col" class="px-4 py-3 text-center">Pts</th>
-                                <th scope="col" class="px-4 py-3 text-center">PJ</th>
-                                <th scope="col" class="px-4 py-3 text-center">DIF</th>
+                                <th scope="col" class="px-4 py-3.5">Pos</th>
+                                <th scope="col" class="px-4 py-3.5">Equipo</th>
+                                <th scope="col" class="px-4 py-3.5 text-center">Pts</th>
+                                <th scope="col" class="px-4 py-3.5 text-center">PJ</th>
+                                <th scope="col" class="px-4 py-3.5 text-center">DIF</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-zinc-800/60 text-xs sm:text-sm">
-                            <tr class="bg-blue-950/30 border-l-4 border-l-blue-500"><td class="px-4 py-3 font-bold text-blue-400">1</td><td class="px-4 py-3 text-white font-medium">Vélez</td><td class="px-4 py-3 text-center font-bold">13</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+4</td></tr>
-                            <tr class="bg-blue-950/30 border-l-4 border-l-blue-500"><td class="px-4 py-3 font-bold text-blue-400">2</td><td class="px-4 py-3 text-white font-medium">Instituto</td><td class="px-4 py-3 text-center font-bold">13</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+3</td></tr>
-                            <tr class="bg-blue-950/30 border-l-4 border-l-blue-500"><td class="px-4 py-3 font-bold text-blue-400">3</td><td class="px-4 py-3 text-white font-medium">Gimnasia (M)</td><td class="px-4 py-3 text-center font-bold">12</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+4</td></tr>
-                            <tr class="bg-blue-950/30 border-l-4 border-l-blue-500"><td class="px-4 py-3 font-bold text-blue-400">4</td><td class="px-4 py-3 text-white font-medium">Defensa</td><td class="px-4 py-3 text-center font-bold">11</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">0</td></tr>
-                            <tr class="bg-blue-950/30 border-l-4 border-l-blue-500"><td class="px-4 py-3 font-bold text-blue-400">5</td><td class="px-4 py-3 text-white font-medium">Independiente</td><td class="px-4 py-3 text-center font-bold">10</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+3</td></tr>
-                            <tr class="bg-blue-950/30 border-l-4 border-l-blue-500"><td class="px-4 py-3 font-bold text-blue-400">6</td><td class="px-4 py-3 text-white font-medium">Unión</td><td class="px-4 py-3 text-center font-bold">10</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+2</td></tr>
-                            <tr class="bg-blue-950/30 border-l-4 border-l-blue-500"><td class="px-4 py-3 font-bold text-blue-400">7</td><td class="px-4 py-3 text-white font-medium">Newell's</td><td class="px-4 py-3 text-center font-bold">10</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+2</td></tr>
-                            <tr class="bg-blue-950/30 border-l-4 border-l-blue-500"><td class="px-4 py-3 font-bold text-blue-400">8</td><td class="px-4 py-3 text-white font-medium">Boca Jrs.</td><td class="px-4 py-3 text-center font-bold">10</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-1</td></tr>
+                        <tbody class="divide-y divide-zinc-800/50 text-xs sm:text-sm">
+                            <tr class="bg-blue-950/20 border-l-4 border-l-blue-500 hover:bg-blue-950/35 transition-colors"><td class="px-4 py-3 font-bold text-blue-400">1</td><td class="px-4 py-3 text-white font-semibold">Vélez</td><td class="px-4 py-3 text-center font-bold">13</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+4</td></tr>
+                            <tr class="bg-blue-950/20 border-l-4 border-l-blue-500 hover:bg-blue-950/35 transition-colors"><td class="px-4 py-3 font-bold text-blue-400">2</td><td class="px-4 py-3 text-white font-semibold">Instituto</td><td class="px-4 py-3 text-center font-bold">13</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+3</td></tr>
+                            <tr class="bg-blue-950/20 border-l-4 border-l-blue-500 hover:bg-blue-950/35 transition-colors"><td class="px-4 py-3 font-bold text-blue-400">3</td><td class="px-4 py-3 text-white font-semibold">Gimnasia (M)</td><td class="px-4 py-3 text-center font-bold">12</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+4</td></tr>
+                            <tr class="bg-blue-950/20 border-l-4 border-l-blue-500 hover:bg-blue-950/35 transition-colors"><td class="px-4 py-3 font-bold text-blue-400">4</td><td class="px-4 py-3 text-white font-semibold">Defensa</td><td class="px-4 py-3 text-center font-bold">11</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">0</td></tr>
+                            <tr class="bg-blue-950/20 border-l-4 border-l-blue-500 hover:bg-blue-950/35 transition-colors"><td class="px-4 py-3 font-bold text-blue-400">5</td><td class="px-4 py-3 text-white font-semibold">Independiente</td><td class="px-4 py-3 text-center font-bold">10</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+3</td></tr>
+                            <tr class="bg-blue-950/20 border-l-4 border-l-blue-500 hover:bg-blue-950/35 transition-colors"><td class="px-4 py-3 font-bold text-blue-400">6</td><td class="px-4 py-3 text-white font-semibold">Unión</td><td class="px-4 py-3 text-center font-bold">10</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+2</td></tr>
+                            <tr class="bg-blue-950/20 border-l-4 border-l-blue-500 hover:bg-blue-950/35 transition-colors"><td class="px-4 py-3 font-bold text-blue-400">7</td><td class="px-4 py-3 text-white font-semibold">Newell's</td><td class="px-4 py-3 text-center font-bold">10</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+2</td></tr>
+                            <tr class="bg-blue-950/20 border-l-4 border-l-blue-500 hover:bg-blue-950/35 transition-colors"><td class="px-4 py-3 font-bold text-blue-400">8</td><td class="px-4 py-3 text-white font-semibold">Boca Jrs.</td><td class="px-4 py-3 text-center font-bold">10</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-1</td></tr>
                             
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">9</td><td class="px-4 py-3 text-zinc-300">Riestra</td><td class="px-4 py-3 text-center font-bold">8</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+1</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">10</td><td class="px-4 py-3 text-zinc-300">Platense</td><td class="px-4 py-3 text-center font-bold">8</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-3</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">11</td><td class="px-4 py-3 text-zinc-300">Lanús</td><td class="px-4 py-3 text-center font-bold">7</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-1</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">12</td><td class="px-4 py-3 text-zinc-300">San Lorenzo</td><td class="px-4 py-3 text-center font-bold">7</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-2</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">13</td><td class="px-4 py-3 text-zinc-300">Central Córdoba</td><td class="px-4 py-3 text-center font-bold">7</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-3</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">14</td><td class="px-4 py-3 text-zinc-300">Estudiantes</td><td class="px-4 py-3 text-center font-bold">6</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">0</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">15</td><td class="px-4 py-3 text-zinc-300">Talleres</td><td class="px-4 py-3 text-center font-bold">5</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-4</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">9</td><td class="px-4 py-3 text-zinc-300">Riestra</td><td class="px-4 py-3 text-center font-bold">8</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+1</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">10</td><td class="px-4 py-3 text-zinc-300">Platense</td><td class="px-4 py-3 text-center font-bold">8</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-3</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">11</td><td class="px-4 py-3 text-zinc-300">Lanús</td><td class="px-4 py-3 text-center font-bold">7</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-1</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">12</td><td class="px-4 py-3 text-zinc-300">San Lorenzo</td><td class="px-4 py-3 text-center font-bold">7</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-2</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">13</td><td class="px-4 py-3 text-zinc-300">Central Córdoba</td><td class="px-4 py-3 text-center font-bold">7</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-3</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">14</td><td class="px-4 py-3 text-zinc-300">Estudiantes</td><td class="px-4 py-3 text-center font-bold">6</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">0</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">15</td><td class="px-4 py-3 text-zinc-300">Talleres</td><td class="px-4 py-3 text-center font-bold">5</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-4</td></tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
-            <div class="bg-zinc-900/80 border border-zinc-800/80 rounded-3xl p-6 sm:p-8 shadow-2xl">
-                <div class="flex items-center gap-3 mb-6 border-b border-zinc-800 pb-4">
-                    <div class="w-10 h-10 rounded-xl bg-red-600/15 border border-red-600/30 flex items-center justify-center text-red-500 text-lg font-bold">⚽</div>
+            <div class="glass-card border border-zinc-800/80 rounded-3xl p-6 sm:p-9 shadow-2xl">
+                <div class="flex items-center gap-3.5 mb-6 border-b border-zinc-800/80 pb-4">
+                    <div class="w-11 h-11 rounded-2xl bg-red-600/10 border border-red-600/20 flex items-center justify-center text-red-500 text-lg font-bold shadow-inner">⚽</div>
                     <div>
-                        <h2 class="text-lg font-bold text-white tracking-tight">Torneo Clausura - Grupo B</h2>
+                        <h2 class="text-lg font-extrabold text-white tracking-tight">Torneo Clausura - Grupo B</h2>
                         <p class="text-xs text-zinc-400">Posiciones actualizadas del Grupo B (Fecha 7)</p>
                     </div>
                 </div>
 
-                <div class="overflow-x-auto">
+                <div class="overflow-x-auto rounded-2xl border border-zinc-800/80 bg-zinc-950/40">
                     <table class="w-full text-left text-sm text-zinc-300">
-                        <thead class="text-xs uppercase bg-zinc-950 text-zinc-400 border-b border-zinc-800">
+                        <thead class="text-[11px] uppercase tracking-wider bg-zinc-950 text-zinc-400 border-b border-zinc-800 font-bold">
                             <tr>
-                                <th scope="col" class="px-4 py-3 rounded-l-lg">Pos</th>
-                                <th scope="col" class="px-4 py-3">Equipo</th>
-                                <th scope="col" class="px-4 py-3 text-center">Pts</th>
-                                <th scope="col" class="px-4 py-3 text-center">PJ</th>
-                                <th scope="col" class="px-4 py-3 text-center">DIF</th>
+                                <th scope="col" class="px-4 py-3.5">Pos</th>
+                                <th scope="col" class="px-4 py-3.5">Equipo</th>
+                                <th scope="col" class="px-4 py-3.5 text-center">Pts</th>
+                                <th scope="col" class="px-4 py-3.5 text-center">PJ</th>
+                                <th scope="col" class="px-4 py-3.5 text-center">DIF</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-zinc-800/60 text-xs sm:text-sm">
-                            <tr class="bg-blue-950/30 border-l-4 border-l-blue-500"><td class="px-4 py-3 font-bold text-blue-400">1</td><td class="px-4 py-3 text-white font-medium">Argentinos</td><td class="px-4 py-3 text-center font-bold">16</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+5</td></tr>
-                            <tr class="bg-blue-950/30 border-l-4 border-l-blue-500"><td class="px-4 py-3 font-bold text-blue-400">2</td><td class="px-4 py-3 text-white font-medium">Sarmiento</td><td class="px-4 py-3 text-center font-bold">12</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+1</td></tr>
-                            <tr class="bg-blue-950/30 border-l-4 border-l-blue-500"><td class="px-4 py-3 font-bold text-blue-400">3</td><td class="px-4 py-3 text-white font-medium">Gimnasia</td><td class="px-4 py-3 text-center font-bold">12</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-1</td></tr>
-                            <tr class="bg-blue-950/30 border-l-4 border-l-blue-500"><td class="px-4 py-3 font-bold text-blue-400">4</td><td class="px-4 py-3 text-white font-medium">Belgrano</td><td class="px-4 py-3 text-center font-bold">11</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+3</td></tr>
-                            <tr class="bg-blue-950/30 border-l-4 border-l-blue-500"><td class="px-4 py-3 font-bold text-blue-400">5</td><td class="px-4 py-3 text-white font-medium">Tigre</td><td class="px-4 py-3 text-center font-bold">11</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+3</td></tr>
-                            <tr class="bg-blue-950/30 border-l-4 border-l-blue-500"><td class="px-4 py-3 font-bold text-blue-400">6</td><td class="px-4 py-3 text-white font-medium">Central</td><td class="px-4 py-3 text-center font-bold">11</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+1</td></tr>
-                            <tr class="bg-blue-950/30 border-l-4 border-l-blue-500"><td class="px-4 py-3 font-bold text-blue-400">7</td><td class="px-4 py-3 text-white font-medium">Atl. Tucumán</td><td class="px-4 py-3 text-center font-bold">10</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+2</td></tr>
-                            <tr class="bg-blue-950/30 border-l-4 border-l-blue-500"><td class="px-4 py-3 font-bold text-blue-400">8</td><td class="px-4 py-3 text-white font-medium">Huracán</td><td class="px-4 py-3 text-center font-bold">9</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">0</td></tr>
+                        <tbody class="divide-y divide-zinc-800/50 text-xs sm:text-sm">
+                            <tr class="bg-blue-950/20 border-l-4 border-l-blue-500 hover:bg-blue-950/35 transition-colors"><td class="px-4 py-3 font-bold text-blue-400">1</td><td class="px-4 py-3 text-white font-semibold">Argentinos</td><td class="px-4 py-3 text-center font-bold">16</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+5</td></tr>
+                            <tr class="bg-blue-950/20 border-l-4 border-l-blue-500 hover:bg-blue-950/35 transition-colors"><td class="px-4 py-3 font-bold text-blue-400">2</td><td class="px-4 py-3 text-white font-semibold">Sarmiento</td><td class="px-4 py-3 text-center font-bold">12</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+1</td></tr>
+                            <tr class="bg-blue-950/20 border-l-4 border-l-blue-500 hover:bg-blue-950/35 transition-colors"><td class="px-4 py-3 font-bold text-blue-400">3</td><td class="px-4 py-3 text-white font-semibold">Gimnasia</td><td class="px-4 py-3 text-center font-bold">12</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-1</td></tr>
+                            <tr class="bg-blue-950/20 border-l-4 border-l-blue-500 hover:bg-blue-950/35 transition-colors"><td class="px-4 py-3 font-bold text-blue-400">4</td><td class="px-4 py-3 text-white font-semibold">Belgrano</td><td class="px-4 py-3 text-center font-bold">11</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+3</td></tr>
+                            <tr class="bg-blue-950/20 border-l-4 border-l-blue-500 hover:bg-blue-950/35 transition-colors"><td class="px-4 py-3 font-bold text-blue-400">5</td><td class="px-4 py-3 text-white font-semibold">Tigre</td><td class="px-4 py-3 text-center font-bold">11</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+3</td></tr>
+                            <tr class="bg-blue-950/20 border-l-4 border-l-blue-500 hover:bg-blue-950/35 transition-colors"><td class="px-4 py-3 font-bold text-blue-400">6</td><td class="px-4 py-3 text-white font-semibold">Central</td><td class="px-4 py-3 text-center font-bold">11</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+1</td></tr>
+                            <tr class="bg-blue-950/20 border-l-4 border-l-blue-500 hover:bg-blue-950/35 transition-colors"><td class="px-4 py-3 font-bold text-blue-400">7</td><td class="px-4 py-3 text-white font-semibold">Atl. Tucumán</td><td class="px-4 py-3 text-center font-bold">10</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">+2</td></tr>
+                            <tr class="bg-blue-950/20 border-l-4 border-l-blue-500 hover:bg-blue-950/35 transition-colors"><td class="px-4 py-3 font-bold text-blue-400">8</td><td class="px-4 py-3 text-white font-semibold">Huracán</td><td class="px-4 py-3 text-center font-bold">9</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">0</td></tr>
                             
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">9</td><td class="px-4 py-3 text-zinc-300">Barracas Central</td><td class="px-4 py-3 text-center font-bold">9</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-1</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">10</td><td class="px-4 py-3 text-zinc-300">Independiente Riv.</td><td class="px-4 py-3 text-center font-bold">8</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-1</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">9</td><td class="px-4 py-3 text-zinc-300">Barracas Central</td><td class="px-4 py-3 text-center font-bold">9</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-1</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">10</td><td class="px-4 py-3 text-zinc-300">Independiente Riv.</td><td class="px-4 py-3 text-center font-bold">8</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-1</td></tr>
                             
                             <tr class="bg-red-950/30 border-l-4 border-l-red-600">
                                 <td class="px-4 py-3 font-bold text-red-500">11</td>
                                 <td class="px-4 py-3 text-white font-bold">
                                     <div class="flex flex-col gap-0.5">
                                         <span>River Plate</span>
-                                        <span class="text-[11px] text-zinc-400">DT Interino: Ponzio | Ayudante: Escudero</span>
+                                        <span class="text-[11px] text-zinc-400 font-normal">DT Interino: Ponzio | Ayudante: Escudero</span>
                                     </div>
                                 </td>
                                 <td class="px-4 py-3 text-center font-bold text-white">7</td>
@@ -265,50 +257,50 @@
                                 <td class="px-4 py-3 text-center">-1</td>
                             </tr>
 
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">12</td><td class="px-4 py-3 text-zinc-300">Banfield</td><td class="px-4 py-3 text-center font-bold">7</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-3</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">13</td><td class="px-4 py-3 text-zinc-300">Estudiantes RC</td><td class="px-4 py-3 text-center font-bold">6</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-4</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">14</td><td class="px-4 py-3 text-zinc-300">Racing</td><td class="px-4 py-3 text-center font-bold">5</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-3</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">15</td><td class="px-4 py-3 text-zinc-300">Aldosivi</td><td class="px-4 py-3 text-center font-bold">2</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-6</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">12</td><td class="px-4 py-3 text-zinc-300">Banfield</td><td class="px-4 py-3 text-center font-bold">7</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-3</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">13</td><td class="px-4 py-3 text-zinc-300">Estudiantes RC</td><td class="px-4 py-3 text-center font-bold">6</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-4</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">14</td><td class="px-4 py-3 text-zinc-300">Racing</td><td class="px-4 py-3 text-center font-bold">5</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-3</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">15</td><td class="px-4 py-3 text-zinc-300">Aldosivi</td><td class="px-4 py-3 text-center font-bold">2</td><td class="px-4 py-3 text-center">7</td><td class="px-4 py-3 text-center">-6</td></tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
-            <div class="bg-zinc-900/80 border border-zinc-800/80 rounded-3xl p-6 sm:p-8 shadow-2xl">
-                <div class="flex items-center gap-3 mb-6 border-b border-zinc-800 pb-4">
-                    <div class="w-10 h-10 rounded-xl bg-red-600/15 border border-red-600/30 flex items-center justify-center text-red-500 text-lg font-bold">📊</div>
+            <div class="glass-card border border-zinc-800/80 rounded-3xl p-6 sm:p-9 shadow-2xl">
+                <div class="flex items-center gap-3.5 mb-6 border-b border-zinc-800/80 pb-4">
+                    <div class="w-11 h-11 rounded-2xl bg-red-600/10 border border-red-600/20 flex items-center justify-center text-red-500 text-lg font-bold shadow-inner">📊</div>
                     <div>
-                        <h2 class="text-lg font-bold text-white tracking-tight">Tabla Anual Oficial - Posiciones y Copas</h2>
+                        <h2 class="text-lg font-extrabold text-white tracking-tight">Tabla Anual Oficial - Posiciones y Copas</h2>
                         <p class="text-xs text-zinc-400">Clasificación a CONMEBOL Libertadores (Del 1 al 3) y Copa Sudamericana</p>
                     </div>
                 </div>
 
-                <div class="flex flex-wrap gap-3 mb-6 text-xs font-semibold">
-                    <div class="flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 text-amber-400 px-3 py-1.5 rounded-lg">
-                        <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> CONMEBOL Libertadores (Del 1 al 3)
+                <div class="flex flex-wrap gap-2.5 mb-6 text-xs font-semibold">
+                    <div class="flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 text-amber-400 px-3 py-1.5 rounded-xl shadow-sm">
+                        <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Libertadores (1-3)
                     </div>
-                    <div class="flex items-center gap-2 bg-sky-500/10 border border-sky-500/30 text-sky-400 px-3 py-1.5 rounded-lg">
-                        <span class="w-2.5 h-2.5 rounded-full bg-sky-500"></span> CONMEBOL Sudamericana
+                    <div class="flex items-center gap-2 bg-sky-500/10 border border-sky-500/30 text-sky-400 px-3 py-1.5 rounded-xl shadow-sm">
+                        <span class="w-2.5 h-2.5 rounded-full bg-sky-500"></span> Sudamericana
                     </div>
-                    <div class="flex items-center gap-2 bg-rose-500/10 border border-rose-500/30 text-rose-400 px-3 py-1.5 rounded-lg">
+                    <div class="flex items-center gap-2 bg-rose-500/10 border border-rose-500/30 text-rose-400 px-3 py-1.5 rounded-xl shadow-sm">
                         <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span> Descenso
                     </div>
                 </div>
 
-                <div class="overflow-x-auto">
+                <div class="overflow-x-auto rounded-2xl border border-zinc-800/80 bg-zinc-950/40">
                     <table class="w-full text-left text-sm text-zinc-300">
-                        <thead class="text-xs uppercase bg-zinc-950 text-zinc-400 border-b border-zinc-800">
+                        <thead class="text-[11px] uppercase tracking-wider bg-zinc-950 text-zinc-400 border-b border-zinc-800 font-bold">
                             <tr>
-                                <th scope="col" class="px-4 py-3 rounded-l-lg">Pos</th>
-                                <th scope="col" class="px-4 py-3">Equipo</th>
-                                <th scope="col" class="px-4 py-3 text-center">Pts</th>
-                                <th scope="col" class="px-4 py-3 text-center">PJ</th>
+                                <th scope="col" class="px-4 py-3.5">Pos</th>
+                                <th scope="col" class="px-4 py-3.5">Equipo</th>
+                                <th scope="col" class="px-4 py-3.5 text-center">Pts</th>
+                                <th scope="col" class="px-4 py-3.5 text-center">PJ</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-zinc-800/60 text-xs sm:text-sm">
+                        <tbody class="divide-y divide-zinc-800/50 text-xs sm:text-sm">
                             <tr class="bg-amber-500/10 border-l-4 border-l-amber-500"><td class="px-4 py-3 font-bold text-amber-400">1</td><td class="px-4 py-3 font-semibold text-white">Argentinos</td><td class="px-4 py-3 text-center font-bold">45</td><td class="px-4 py-3 text-center">23</td></tr>
-                            <tr class="bg-amber-500/10 border-l-4 border-l-amber-500"><td class="px-4 py-3 font-bold text-amber-400">2</td><td class="px-4 py-3 font-semibold text-white">Independiente Riv.</td><td class="px-4 py-3 text-center font-bold">42</td><td class="px-4 py-3 text-center">23</td></tr>
-                            <tr class="bg-amber-500/10 border-l-4 border-l-amber-500"><td class="px-4 py-3 font-bold text-amber-400">3</td><td class="px-4 py-3 font-semibold text-white">Vélez</td><td class="px-4 py-3 text-center font-bold">41</td><td class="px-4 py-3 text-center">23</td></tr>
+                            <tr class="bg-amber-500/10 border-l-4 border-l-amber-500"><td class="px-4 py-3 font-semibold text-white">2</td><td class="px-4 py-3 font-semibold text-white">Independiente Riv.</td><td class="px-4 py-3 text-center font-bold">42</td><td class="px-4 py-3 text-center">23</td></tr>
+                            <tr class="bg-amber-500/10 border-l-4 border-l-amber-500"><td class="px-4 py-3 font-semibold text-white">3</td><td class="px-4 py-3 font-semibold text-white">Vélez</td><td class="px-4 py-3 text-center font-bold">41</td><td class="px-4 py-3 text-center">23</td></tr>
 
                             <tr class="bg-sky-500/10 border-l-4 border-l-sky-500"><td class="px-4 py-3 font-bold text-sky-400">4</td><td class="px-4 py-3 font-medium text-zinc-200">Boca Jrs.</td><td class="px-4 py-3 text-center font-bold">40</td><td class="px-4 py-3 text-center">23</td></tr>
                             <tr class="bg-sky-500/10 border-l-4 border-l-sky-500"><td class="px-4 py-3 font-bold text-sky-400">5</td><td class="px-4 py-3 font-medium text-zinc-200">Central</td><td class="px-4 py-3 text-center font-bold">39</td><td class="px-4 py-3 text-center">23</td></tr>
@@ -318,24 +310,24 @@
                             <tr class="bg-sky-500/10 border-l-4 border-l-sky-500"><td class="px-4 py-3 font-bold text-sky-400">9</td><td class="px-4 py-3 font-medium text-zinc-200">River Plate</td><td class="px-4 py-3 text-center font-bold">36</td><td class="px-4 py-3 text-center">23</td></tr>
                             <tr class="bg-sky-500/10 border-l-4 border-l-sky-500"><td class="px-4 py-3 font-bold text-sky-400">10</td><td class="px-4 py-3 font-medium text-zinc-200">Independiente</td><td class="px-4 py-3 text-center font-bold">34</td><td class="px-4 py-3 text-center">23</td></tr>
 
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">11</td><td class="px-4 py-3 text-zinc-300">Instituto</td><td class="px-4 py-3 text-center font-bold">34</td><td class="px-4 py-3 text-center">23</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">12</td><td class="px-4 py-3 text-zinc-300">Gimnasia (M)</td><td class="px-4 py-3 text-center font-bold">34</td><td class="px-4 py-3 text-center">23</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">13</td><td class="px-4 py-3 text-zinc-300">Defensa</td><td class="px-4 py-3 text-center font-bold">33</td><td class="px-4 py-3 text-center">23</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">14</td><td class="px-4 py-3 text-zinc-300">Tigre</td><td class="px-4 py-3 text-center font-bold">32</td><td class="px-4 py-3 text-center">23</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">15</td><td class="px-4 py-3 text-zinc-300">Unión</td><td class="px-4 py-3 text-center font-bold">31</td><td class="px-4 py-3 text-center">23</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">16</td><td class="px-4 py-3 text-zinc-300">Huracán</td><td class="px-4 py-3 text-center font-bold">31</td><td class="px-4 py-3 text-center">23</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">17</td><td class="px-4 py-3 text-zinc-300">Lanús</td><td class="px-4 py-3 text-center font-bold">31</td><td class="px-4 py-3 text-center">23</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">18</td><td class="px-4 py-3 text-zinc-300">Talleres</td><td class="px-4 py-3 text-center font-bold">31</td><td class="px-4 py-3 text-center">23</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">19</td><td class="px-4 py-3 text-zinc-300">Barracas</td><td class="px-4 py-3 text-center font-bold">31</td><td class="px-4 py-3 text-center">23</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">20</td><td class="px-4 py-3 text-zinc-300">Sarmiento</td><td class="px-4 py-3 text-center font-bold">31</td><td class="px-4 py-3 text-center">23</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">21</td><td class="px-4 py-3 text-zinc-300">San Lorenzo</td><td class="px-4 py-3 text-center font-bold">29</td><td class="px-4 py-3 text-center">23</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">22</td><td class="px-4 py-3 text-zinc-300">Racing</td><td class="px-4 py-3 text-center font-bold">26</td><td class="px-4 py-3 text-center">23</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">23</td><td class="px-4 py-3 text-zinc-300">Newell's</td><td class="px-4 py-3 text-center font-bold">26</td><td class="px-4 py-3 text-center">23</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">24</td><td class="px-4 py-3 text-zinc-300">Banfield</td><td class="px-4 py-3 text-center font-bold">25</td><td class="px-4 py-3 text-center">23</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">25</td><td class="px-4 py-3 text-zinc-300">Atl. Tucumán</td><td class="px-4 py-3 text-center font-bold">24</td><td class="px-4 py-3 text-center">23</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">26</td><td class="px-4 py-3 text-zinc-300">Platense</td><td class="px-4 py-3 text-center font-bold">24</td><td class="px-4 py-3 text-center">23</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">27</td><td class="px-4 py-3 text-zinc-300">Central Córdoba</td><td class="px-4 py-3 text-center font-bold">23</td><td class="px-4 py-3 text-center">23</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">28</td><td class="px-4 py-3 text-zinc-300">Riestra</td><td class="px-4 py-3 text-center font-bold">19</td><td class="px-4 py-3 text-center">23</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">11</td><td class="px-4 py-3 text-zinc-300">Instituto</td><td class="px-4 py-3 text-center font-bold">34</td><td class="px-4 py-3 text-center">23</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">12</td><td class="px-4 py-3 text-zinc-300">Gimnasia (M)</td><td class="px-4 py-3 text-center font-bold">34</td><td class="px-4 py-3 text-center">23</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">13</td><td class="px-4 py-3 text-zinc-300">Defensa</td><td class="px-4 py-3 text-center font-bold">33</td><td class="px-4 py-3 text-center">23</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">14</td><td class="px-4 py-3 text-zinc-300">Tigre</td><td class="px-4 py-3 text-center font-bold">32</td><td class="px-4 py-3 text-center">23</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">15</td><td class="px-4 py-3 text-zinc-300">Unión</td><td class="px-4 py-3 text-center font-bold">31</td><td class="px-4 py-3 text-center">23</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">16</td><td class="px-4 py-3 text-zinc-300">Huracán</td><td class="px-4 py-3 text-center font-bold">31</td><td class="px-4 py-3 text-center">23</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">17</td><td class="px-4 py-3 text-zinc-300">Lanús</td><td class="px-4 py-3 text-center font-bold">31</td><td class="px-4 py-3 text-center">23</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">18</td><td class="px-4 py-3 text-zinc-300">Talleres</td><td class="px-4 py-3 text-center font-bold">31</td><td class="px-4 py-3 text-center">23</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">19</td><td class="px-4 py-3 text-zinc-300">Barracas</td><td class="px-4 py-3 text-center font-bold">31</td><td class="px-4 py-3 text-center">23</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">20</td><td class="px-4 py-3 text-zinc-300">Sarmiento</td><td class="px-4 py-3 text-center font-bold">31</td><td class="px-4 py-3 text-center">23</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">21</td><td class="px-4 py-3 text-zinc-300">San Lorenzo</td><td class="px-4 py-3 text-center font-bold">29</td><td class="px-4 py-3 text-center">23</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">22</td><td class="px-4 py-3 text-zinc-300">Racing</td><td class="px-4 py-3 text-center font-bold">26</td><td class="px-4 py-3 text-center">23</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">23</td><td class="px-4 py-3 text-zinc-300">Newell's</td><td class="px-4 py-3 text-center font-bold">26</td><td class="px-4 py-3 text-center">23</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">24</td><td class="px-4 py-3 text-zinc-300">Banfield</td><td class="px-4 py-3 text-center font-bold">25</td><td class="px-4 py-3 text-center">23</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">25</td><td class="px-4 py-3 text-zinc-300">Atl. Tucumán</td><td class="px-4 py-3 text-center font-bold">24</td><td class="px-4 py-3 text-center">23</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">26</td><td class="px-4 py-3 text-zinc-300">Platense</td><td class="px-4 py-3 text-center font-bold">24</td><td class="px-4 py-3 text-center">23</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">27</td><td class="px-4 py-3 text-zinc-300">Central Córdoba</td><td class="px-4 py-3 text-center font-bold">23</td><td class="px-4 py-3 text-center">23</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">28</td><td class="px-4 py-3 text-zinc-300">Riestra</td><td class="px-4 py-3 text-center font-bold">19</td><td class="px-4 py-3 text-center">23</td></tr>
                             <tr class="bg-rose-500/10 border-l-4 border-l-rose-500"><td class="px-4 py-3 font-bold text-rose-400">29</td><td class="px-4 py-3 font-medium text-zinc-200">Estudiantes RC</td><td class="px-4 py-3 text-center font-bold">11</td><td class="px-4 py-3 text-center">23</td></tr>
                             <tr class="bg-rose-500/10 border-l-4 border-l-rose-500"><td class="px-4 py-3 font-bold text-rose-400">30</td><td class="px-4 py-3 font-medium text-zinc-200">Aldosivi</td><td class="px-4 py-3 text-center font-bold">10</td><td class="px-4 py-3 text-center">23</td></tr>
                         </tbody>
@@ -344,61 +336,61 @@
             </div>
 
             <!-- Tabla de Promedios -->
-            <div class="bg-zinc-900/80 border border-zinc-800/80 rounded-3xl p-6 sm:p-8 shadow-2xl">
-                <div class="flex items-center gap-3 mb-6 border-b border-zinc-800 pb-4">
-                    <div class="w-10 h-10 rounded-xl bg-red-600/15 border border-red-600/30 flex items-center justify-center text-red-500 text-lg font-bold">📉</div>
+            <div class="glass-card border border-zinc-800/80 rounded-3xl p-6 sm:p-9 shadow-2xl">
+                <div class="flex items-center gap-3.5 mb-6 border-b border-zinc-800/80 pb-4">
+                    <div class="w-11 h-11 rounded-2xl bg-red-600/10 border border-red-600/20 flex items-center justify-center text-red-500 text-lg font-bold shadow-inner">📉</div>
                     <div>
-                        <h2 class="text-lg font-bold text-white tracking-tight">Tabla de Promedios (Descenso)</h2>
+                        <h2 class="text-lg font-extrabold text-white tracking-tight">Tabla de Promedios (Descenso)</h2>
                         <p class="text-xs text-zinc-400">Coeficientes para la permanencia en Primera División</p>
                     </div>
                 </div>
 
-                <div class="flex flex-wrap gap-3 mb-6 text-xs font-semibold">
-                    <div class="flex items-center gap-2 bg-rose-500/10 border border-rose-500/30 text-rose-400 px-3 py-1.5 rounded-lg">
+                <div class="flex flex-wrap gap-2.5 mb-6 text-xs font-semibold">
+                    <div class="flex items-center gap-2 bg-rose-500/10 border border-rose-500/30 text-rose-400 px-3 py-1.5 rounded-xl shadow-sm">
                         <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span> Zona de Descenso
                     </div>
                 </div>
 
-                <div class="overflow-x-auto">
+                <div class="overflow-x-auto rounded-2xl border border-zinc-800/80 bg-zinc-950/40">
                     <table class="w-full text-left text-sm text-zinc-300">
-                        <thead class="text-xs uppercase bg-zinc-950 text-zinc-400 border-b border-zinc-800">
+                        <thead class="text-[11px] uppercase tracking-wider bg-zinc-950 text-zinc-400 border-b border-zinc-800 font-bold">
                             <tr>
-                                <th scope="col" class="px-4 py-3 rounded-l-lg">Pos</th>
-                                <th scope="col" class="px-4 py-3">Equipo</th>
-                                <th scope="col" class="px-4 py-3 text-center">Promedio</th>
-                                <th scope="col" class="px-4 py-3 text-center">Pts</th>
-                                <th scope="col" class="px-4 py-3 text-center">PJ</th>
+                                <th scope="col" class="px-4 py-3.5">Pos</th>
+                                <th scope="col" class="px-4 py-3.5">Equipo</th>
+                                <th scope="col" class="px-4 py-3.5 text-center">Promedio</th>
+                                <th scope="col" class="px-4 py-3.5 text-center">Pts</th>
+                                <th scope="col" class="px-4 py-3.5 text-center">PJ</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-zinc-800/60 text-xs sm:text-sm">
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">1</td><td class="px-4 py-3 text-zinc-300">Boca Jrs.</td><td class="px-4 py-3 text-center font-bold text-white">1.760</td><td class="px-4 py-3 text-center">169</td><td class="px-4 py-3 text-center">96</td></tr>
+                        <tbody class="divide-y divide-zinc-800/50 text-xs sm:text-sm">
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">1</td><td class="px-4 py-3 text-zinc-300">Boca Jrs.</td><td class="px-4 py-3 text-center font-bold text-white">1.760</td><td class="px-4 py-3 text-center">169</td><td class="px-4 py-3 text-center">96</td></tr>
                             <tr class="bg-red-950/30 border-l-4 border-l-red-600"><td class="px-4 py-3 font-bold text-red-500">2</td><td class="px-4 py-3 text-white font-bold">River Plate</td><td class="px-4 py-3 text-center font-bold text-red-400">1.656</td><td class="px-4 py-3 text-center">159</td><td class="px-4 py-3 text-center">96</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">3</td><td class="px-4 py-3 text-zinc-300">Argentinos</td><td class="px-4 py-3 text-center font-bold text-white">1.646</td><td class="px-4 py-3 text-center">158</td><td class="px-4 py-3 text-center">96</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">4</td><td class="px-4 py-3 text-zinc-300">Vélez</td><td class="px-4 py-3 text-center font-bold text-white">1.635</td><td class="px-4 py-3 text-center">157</td><td class="px-4 py-3 text-center">96</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">5</td><td class="px-4 py-3 text-zinc-300">Central</td><td class="px-4 py-3 text-center font-bold text-white">1.583</td><td class="px-4 py-3 text-center">152</td><td class="px-4 py-3 text-center">96</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">6</td><td class="px-4 py-3 text-zinc-300">Racing</td><td class="px-4 py-3 text-center font-bold text-white">1.568</td><td class="px-4 py-3 text-center">149</td><td class="px-4 py-3 text-center">95</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">7</td><td class="px-4 py-3 text-zinc-300">Independiente</td><td class="px-4 py-3 text-center font-bold text-white">1.516</td><td class="px-4 py-3 text-center">144</td><td class="px-4 py-3 text-center">95</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">8</td><td class="px-4 py-3 text-zinc-300">Estudiantes</td><td class="px-4 py-3 text-center font-bold text-white">1.495</td><td class="px-4 py-3 text-center">142</td><td class="px-4 py-3 text-center">95</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">9</td><td class="px-4 py-3 text-zinc-300">Huracán</td><td class="px-4 py-3 text-center font-bold text-white">1.458</td><td class="px-4 py-3 text-center">140</td><td class="px-4 py-3 text-center">96</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">10</td><td class="px-4 py-3 text-zinc-300">Lanús</td><td class="px-4 py-3 text-center font-bold text-white">1.458</td><td class="px-4 py-3 text-center">140</td><td class="px-4 py-3 text-center">96</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">11</td><td class="px-4 py-3 text-zinc-300">Talleres</td><td class="px-4 py-3 text-center font-bold text-white">1.427</td><td class="px-4 py-3 text-center">137</td><td class="px-4 py-3 text-center">96</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">12</td><td class="px-4 py-3 text-zinc-300">Gimnasia (M)</td><td class="px-4 py-3 text-center font-bold text-white">1.409</td><td class="px-4 py-3 text-center">31</td><td class="px-4 py-3 text-center">22</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">13</td><td class="px-4 py-3 text-zinc-300">Independiente Riv.</td><td class="px-4 py-3 text-center font-bold text-white">1.379</td><td class="px-4 py-3 text-center">131</td><td class="px-4 py-3 text-center">95</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">14</td><td class="px-4 py-3 text-zinc-300">Unión</td><td class="px-4 py-3 text-center font-bold text-white">1.354</td><td class="px-4 py-3 text-center">130</td><td class="px-4 py-3 text-center">96</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">15</td><td class="px-4 py-3 text-zinc-300">Barracas</td><td class="px-4 py-3 text-center font-bold text-white">1.347</td><td class="px-4 py-3 text-center">128</td><td class="px-4 py-3 text-center">95</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">16</td><td class="px-4 py-3 text-zinc-300">Defensa</td><td class="px-4 py-3 text-center font-bold text-white">1.326</td><td class="px-4 py-3 text-center">126</td><td class="px-4 py-3 text-center">95</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">17</td><td class="px-4 py-3 text-zinc-300">San Lorenzo</td><td class="px-4 py-3 text-center font-bold text-white">1.316</td><td class="px-4 py-3 text-center">125</td><td class="px-4 py-3 text-center">95</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">18</td><td class="px-4 py-3 text-zinc-300">Gimnasia</td><td class="px-4 py-3 text-center font-bold text-white">1.292</td><td class="px-4 py-3 text-center">124</td><td class="px-4 py-3 text-center">96</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">19</td><td class="px-4 py-3 text-zinc-300">Belgrano</td><td class="px-4 py-3 text-center font-bold text-white">1.281</td><td class="px-4 py-3 text-center">123</td><td class="px-4 py-3 text-center">96</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">20</td><td class="px-4 py-3 text-zinc-300">Instituto</td><td class="px-4 py-3 text-center font-bold text-white">1.274</td><td class="px-4 py-3 text-center">121</td><td class="px-4 py-3 text-center">95</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">21</td><td class="px-4 py-3 text-zinc-300">Tigre</td><td class="px-4 py-3 text-center font-bold text-white">1.253</td><td class="px-4 py-3 text-center">119</td><td class="px-4 py-3 text-center">95</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">22</td><td class="px-4 py-3 text-zinc-300">Riestra</td><td class="px-4 py-3 text-center font-bold text-white">1.240</td><td class="px-4 py-3 text-center">119</td><td class="px-4 py-3 text-center">96</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">23</td><td class="px-4 py-3 text-zinc-300">Platense</td><td class="px-4 py-3 text-center font-bold text-white">1.221</td><td class="px-4 py-3 text-center">116</td><td class="px-4 py-3 text-center">95</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">24</td><td class="px-4 py-3 text-zinc-300">Newell's</td><td class="px-4 py-3 text-center font-bold text-white">1.126</td><td class="px-4 py-3 text-center">107</td><td class="px-4 py-3 text-center">95</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">25</td><td class="px-4 py-3 text-zinc-300">Atl. Tucumán</td><td class="px-4 py-3 text-center font-bold text-white">1.125</td><td class="px-4 py-3 text-center">108</td><td class="px-4 py-3 text-center">96</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">26</td><td class="px-4 py-3 text-center font-bold text-white">1.115</td><td class="px-4 py-3 text-zinc-300">Central Córdoba</td><td class="px-4 py-3 text-center">107</td><td class="px-4 py-3 text-center">96</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">27</td><td class="px-4 py-3 text-zinc-300">Sarmiento</td><td class="px-4 py-3 text-center font-bold text-white">1.052</td><td class="px-4 py-3 text-center">101</td><td class="px-4 py-3 text-center">96</td></tr>
-                            <tr class="bg-zinc-950/30"><td class="px-4 py-3 font-bold text-zinc-500">28</td><td class="px-4 py-3 text-zinc-300">Banfield</td><td class="px-4 py-3 text-center font-bold text-white">1.052</td><td class="px-4 py-3 text-center">101</td><td class="px-4 py-3 text-center">96</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">3</td><td class="px-4 py-3 text-zinc-300">Argentinos</td><td class="px-4 py-3 text-center font-bold text-white">1.646</td><td class="px-4 py-3 text-center">158</td><td class="px-4 py-3 text-center">96</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">4</td><td class="px-4 py-3 text-zinc-300">Vélez</td><td class="px-4 py-3 text-center font-bold text-white">1.635</td><td class="px-4 py-3 text-center">157</td><td class="px-4 py-3 text-center">96</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">5</td><td class="px-4 py-3 text-zinc-300">Central</td><td class="px-4 py-3 text-center font-bold text-white">1.583</td><td class="px-4 py-3 text-center">152</td><td class="px-4 py-3 text-center">96</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">6</td><td class="px-4 py-3 text-zinc-300">Racing</td><td class="px-4 py-3 text-center font-bold text-white">1.568</td><td class="px-4 py-3 text-center">149</td><td class="px-4 py-3 text-center">95</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">7</td><td class="px-4 py-3 text-zinc-300">Independiente</td><td class="px-4 py-3 text-center font-bold text-white">1.516</td><td class="px-4 py-3 text-center">144</td><td class="px-4 py-3 text-center">95</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">8</td><td class="px-4 py-3 text-zinc-300">Estudiantes</td><td class="px-4 py-3 text-center font-bold text-white">1.495</td><td class="px-4 py-3 text-center">142</td><td class="px-4 py-3 text-center">95</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">9</td><td class="px-4 py-3 text-zinc-300">Huracán</td><td class="px-4 py-3 text-center font-bold text-white">1.458</td><td class="px-4 py-3 text-center">140</td><td class="px-4 py-3 text-center">96</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">10</td><td class="px-4 py-3 text-zinc-300">Lanús</td><td class="px-4 py-3 text-center font-bold text-white">1.458</td><td class="px-4 py-3 text-center">140</td><td class="px-4 py-3 text-center">96</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">11</td><td class="px-4 py-3 text-zinc-300">Talleres</td><td class="px-4 py-3 text-center font-bold text-white">1.427</td><td class="px-4 py-3 text-center">137</td><td class="px-4 py-3 text-center">96</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">12</td><td class="px-4 py-3 text-zinc-300">Gimnasia (M)</td><td class="px-4 py-3 text-center font-bold text-white">1.409</td><td class="px-4 py-3 text-center">31</td><td class="px-4 py-3 text-center">22</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">13</td><td class="px-4 py-3 text-zinc-300">Independiente Riv.</td><td class="px-4 py-3 text-center font-bold text-white">1.379</td><td class="px-4 py-3 text-center">131</td><td class="px-4 py-3 text-center">95</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">14</td><td class="px-4 py-3 text-zinc-300">Unión</td><td class="px-4 py-3 text-center font-bold text-white">1.354</td><td class="px-4 py-3 text-center">130</td><td class="px-4 py-3 text-center">96</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">15</td><td class="px-4 py-3 text-zinc-300">Barracas</td><td class="px-4 py-3 text-center font-bold text-white">1.347</td><td class="px-4 py-3 text-center">128</td><td class="px-4 py-3 text-center">95</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">16</td><td class="px-4 py-3 text-zinc-300">Defensa</td><td class="px-4 py-3 text-center font-bold text-white">1.326</td><td class="px-4 py-3 text-center">126</td><td class="px-4 py-3 text-center">95</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">17</td><td class="px-4 py-3 text-zinc-300">San Lorenzo</td><td class="px-4 py-3 text-center font-bold text-white">1.316</td><td class="px-4 py-3 text-center">125</td><td class="px-4 py-3 text-center">95</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">18</td><td class="px-4 py-3 text-zinc-300">Gimnasia</td><td class="px-4 py-3 text-center font-bold text-white">1.292</td><td class="px-4 py-3 text-center">124</td><td class="px-4 py-3 text-center">96</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">19</td><td class="px-4 py-3 text-zinc-300">Belgrano</td><td class="px-4 py-3 text-center font-bold text-white">1.281</td><td class="px-4 py-3 text-center">123</td><td class="px-4 py-3 text-center">96</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">20</td><td class="px-4 py-3 text-zinc-300">Instituto</td><td class="px-4 py-3 text-center font-bold text-white">1.274</td><td class="px-4 py-3 text-center">121</td><td class="px-4 py-3 text-center">95</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">21</td><td class="px-4 py-3 text-zinc-300">Tigre</td><td class="px-4 py-3 text-center font-bold text-white">1.253</td><td class="px-4 py-3 text-center">119</td><td class="px-4 py-3 text-center">95</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">22</td><td class="px-4 py-3 text-zinc-300">Riestra</td><td class="px-4 py-3 text-center font-bold text-white">1.240</td><td class="px-4 py-3 text-center">119</td><td class="px-4 py-3 text-center">96</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">23</td><td class="px-4 py-3 text-zinc-300">Platense</td><td class="px-4 py-3 text-center font-bold text-white">1.221</td><td class="px-4 py-3 text-center">116</td><td class="px-4 py-3 text-center">95</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">24</td><td class="px-4 py-3 text-zinc-300">Newell's</td><td class="px-4 py-3 text-center font-bold text-white">1.126</td><td class="px-4 py-3 text-center">107</td><td class="px-4 py-3 text-center">95</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">25</td><td class="px-4 py-3 text-zinc-300">Atl. Tucumán</td><td class="px-4 py-3 text-center font-bold text-white">1.125</td><td class="px-4 py-3 text-center">108</td><td class="px-4 py-3 text-center">96</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">26</td><td class="px-4 py-3 text-zinc-300">Central Córdoba</td><td class="px-4 py-3 text-center font-bold text-white">1.115</td><td class="px-4 py-3 text-center">107</td><td class="px-4 py-3 text-center">96</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">27</td><td class="px-4 py-3 text-zinc-300">Sarmiento</td><td class="px-4 py-3 text-center font-bold text-white">1.052</td><td class="px-4 py-3 text-center">101</td><td class="px-4 py-3 text-center">96</td></tr>
+                            <tr class="hover:bg-zinc-900/40 transition-colors"><td class="px-4 py-3 font-bold text-zinc-500">28</td><td class="px-4 py-3 text-zinc-300">Banfield</td><td class="px-4 py-3 text-center font-bold text-white">1.052</td><td class="px-4 py-3 text-center">101</td><td class="px-4 py-3 text-center">96</td></tr>
                             <tr class="bg-rose-500/10 border-l-4 border-l-rose-500"><td class="px-4 py-3 font-bold text-rose-400">29</td><td class="px-4 py-3 font-medium text-zinc-200">Aldosivi</td><td class="px-4 py-3 text-center font-bold text-rose-400">0.782</td><td class="px-4 py-3 text-center">43</td><td class="px-4 py-3 text-center">55</td></tr>
                             <tr class="bg-rose-500/10 border-l-4 border-l-rose-500"><td class="px-4 py-3 font-bold text-rose-400">30</td><td class="px-4 py-3 font-medium text-zinc-200">Estudiantes RC</td><td class="px-4 py-3 text-center font-bold text-rose-400">0.478</td><td class="px-4 py-3 text-center">11</td><td class="px-4 py-3 text-center">23</td></tr>
                         </tbody>
@@ -408,17 +400,17 @@
 
         </section>
 
-        <section id="comunidad" class="scroll-mt-24 bg-zinc-900/80 border border-zinc-800/80 rounded-3xl p-6 sm:p-8 shadow-2xl">
-            <div class="flex items-center gap-3 mb-6 border-b border-zinc-800 pb-4">
-                <div class="w-10 h-10 rounded-xl bg-red-600/15 border border-red-600/30 flex items-center justify-center text-red-500 text-lg font-bold">🚀</div>
+        <section id="comunidad" class="scroll-mt-28 glass-card border border-zinc-800/80 rounded-3xl p-6 sm:p-9 shadow-2xl">
+            <div class="flex items-center gap-3.5 mb-6 border-b border-zinc-800/80 pb-4">
+                <div class="w-11 h-11 rounded-2xl bg-red-600/10 border border-red-600/20 flex items-center justify-center text-red-500 text-lg font-bold shadow-inner">🚀</div>
                 <div>
-                    <h2 class="text-lg font-bold text-white tracking-tight">Comunidad y Accesos</h2>
+                    <h2 class="text-lg font-extrabold text-white tracking-tight">Comunidad y Accesos</h2>
                     <p class="text-xs text-zinc-400">Interactuá, jugá y apoyá el proyecto</p>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <a href="https://tinyurl.com/sincassette-trivia" target="_blank" class="group relative bg-gradient-to-br from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 p-6 rounded-2xl shadow-lg shadow-red-600/20 transition-all hover:-translate-y-1 flex flex-col justify-between">
+                <a href="https://tinyurl.com/sincassette-trivia" target="_blank" class="group relative bg-gradient-to-br from-red-600 to-rose-700 hover:from-red-500 hover:to-rose-600 p-6 rounded-2xl shadow-lg shadow-red-600/20 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between">
                     <span class="text-2xl mb-4 block">🎮</span>
                     <div>
                         <h3 class="font-bold text-white text-base mb-1">Trivia</h3>
@@ -426,7 +418,7 @@
                     </div>
                 </a>
 
-                <a href="https://instagram.com/ana.mdq.ok" target="_blank" class="group relative bg-gradient-to-br from-amber-500 via-rose-600 to-purple-700 hover:opacity-95 p-6 rounded-2xl shadow-lg transition-all hover:-translate-y-1 flex flex-col justify-between">
+                <a href="https://instagram.com/ana.mdq.ok" target="_blank" class="group relative bg-gradient-to-br from-amber-500 via-rose-600 to-purple-700 hover:opacity-95 p-6 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between">
                     <span class="text-2xl mb-4 block">📸</span>
                     <div>
                         <span class="font-bold text-white text-base mb-1 block">Instagram</span>
@@ -434,7 +426,7 @@
                     </div>
                 </a>
 
-                <a href="https://cafecito.app/sincassetteriver" target="_blank" class="group relative bg-gradient-to-br from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 p-6 rounded-2xl shadow-lg shadow-amber-600/20 transition-all hover:-translate-y-1 flex flex-col justify-between">
+                <a href="https://cafecito.app/sincassetteriver" target="_blank" class="group relative bg-gradient-to-br from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 p-6 rounded-2xl shadow-lg shadow-amber-600/20 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between">
                     <span class="text-2xl mb-4 block">☕</span>
                     <div>
                         <h3 class="font-bold text-white text-base mb-1">Cafecito</h3>
@@ -446,7 +438,7 @@
 
     </main>
 
-    <footer class="w-full py-8 text-center text-xs text-zinc-500 bg-zinc-950 mt-auto border-t border-zinc-800">
+    <footer class="w-full py-8 text-center text-xs text-zinc-500 bg-zinc-950 mt-auto border-t border-zinc-800/80">
         <p>Hecho por Ana Mdq</p>
     </footer>
 
