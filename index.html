@@ -4,194 +4,452 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sincassette | Portal Oficial River Plate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --rojo-river: #EE3124;
+            --rojo-river: #E30613;
+            --rojo-oscuro: #9C040C;
+            --negro: #0D0F12;
+            --gris-oscuro: #1A1D24;
+            --gris-medio: #8C96A6;
+            --gris-claro: #F4F6F9;
             --blanco: #FFFFFF;
-            --negro: #111111;
-            --gris-claro: #F5F5F5;
-            --gris-oscuro: #333333;
+            --borde: #E2E8F0;
+            --destacado: #FFF1F2;
         }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--gris-claro);
             color: var(--negro);
-            line-height: 1.5;
+            line-height: 1.6;
         }
+
         header {
-            background-color: var(--negro);
+            background: linear-gradient(135deg, var(--negro) 0%, #161920 100%);
             color: var(--blanco);
-            padding: 1.5rem;
+            padding: 2.2rem 1rem;
             text-align: center;
             border-bottom: 5px solid var(--rojo-river);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
+
+        .header-badge {
+            display: inline-block;
+            background-color: var(--rojo-river);
+            color: var(--blanco);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            padding: 0.35rem 0.85rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
         header h1 {
-            font-size: 2.2rem;
-            letter-spacing: 1px;
+            font-size: 2.5rem;
+            letter-spacing: 1.2px;
+            color: var(--blanco);
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        header h1 span {
             color: var(--rojo-river);
         }
+
         header p {
-            margin-top: 0.5rem;
-            font-size: 1rem;
-            color: #CCCCCC;
+            margin-top: 0.4rem;
+            font-size: 0.95rem;
+            color: var(--gris-medio);
+            font-weight: 500;
         }
+
         nav {
-            background-color: var(--rojo-river);
+            background-color: var(--negro);
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
         }
+
         nav a {
             color: var(--blanco);
             text-decoration: none;
-            padding: 0.75rem 1.25rem;
-            font-weight: bold;
-            transition: background 0.3s;
+            padding: 0.9rem 1.3rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.25s ease;
+            border-bottom: 3px solid transparent;
         }
+
         nav a:hover {
-            background-color: #B51F14;
+            color: var(--rojo-river);
+            border-bottom-color: var(--rojo-river);
+            background-color: rgba(227, 6, 19, 0.05);
         }
+
         main {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 2rem auto;
             padding: 0 1rem;
         }
+
+        .grid-dashboard {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 850px) {
+            .grid-dashboard {
+                grid-template-columns: 1.1fr 1fr;
+            }
+        }
+
         section {
             background: var(--blanco);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 14px;
+            padding: 1.75rem;
+            margin-bottom: 1.75rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--borde);
         }
-        h2 {
-            color: var(--rojo-river);
-            border-bottom: 2px solid var(--gris-claro);
-            padding-bottom: 0.5rem;
-            margin-top: 0;
-        }
-        .match-card {
+
+        .section-header {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
             align-items: center;
-            background: var(--gris-claro);
-            padding: 1rem;
-            border-radius: 6px;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--gris-claro);
+        }
+
+        h2 {
+            color: var(--negro);
+            font-size: 1.25rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 22px;
+            background-color: var(--rojo-river);
+            border-radius: 4px;
+        }
+
+        h3 {
+            color: var(--gris-oscuro);
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin: 1.5rem 0 0.75rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        /* Match Card */
+        .match-card {
+            background: linear-gradient(135deg, var(--negro) 0%, #1e222d 100%);
+            color: var(--blanco);
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
-            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .match-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--rojo-river);
+        }
+
+        .match-teams {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+            margin: 1rem 0;
             gap: 1rem;
         }
+
+        .team-name {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .match-vs-badge {
+            background-color: var(--rojo-river);
+            color: var(--blanco);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+            box-shadow: 0 0 15px rgba(227, 6, 19, 0.4);
+        }
+
+        .match-meta {
+            background: rgba(255,255,255,0.06);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #CBD5E1;
+            margin-top: 0.5rem;
+        }
+
+        /* News Cards */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .news-item {
+            background: var(--gris-claro);
+            padding: 1rem 1.2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--rojo-river);
+        }
+
+        .news-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--rojo-river);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .news-text {
+            font-size: 0.93rem;
+            color: var(--negro);
+            font-weight: 500;
+        }
+
+        /* Tables */
         .table-container {
             width: 100%;
             overflow-x: auto;
-            margin-top: 1rem;
+            border-radius: 10px;
+            border: 1px solid var(--borde);
+            margin-top: 0.5rem;
+            background: var(--blanco);
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-align: left;
-            min-width: 500px;
-        }
-        th, td {
-            padding: 0.65rem 0.5rem;
-            border-bottom: 1px solid #E0E0E0;
             white-space: nowrap;
         }
+
         th {
             background-color: var(--negro);
             color: var(--blanco);
+            font-weight: 700;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.75rem 0.6rem;
         }
+
+        td {
+            padding: 0.65rem 0.6rem;
+            border-bottom: 1px solid #E2E8F0;
+            color: #2D3748;
+            font-weight: 500;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
         tr.highlight {
-            background-color: rgba(238, 49, 36, 0.12);
-            font-weight: bold;
+            background-color: var(--destacado);
+            font-weight: 700;
         }
+
+        tr.highlight td {
+            color: var(--rojo-oscuro);
+        }
+
+        .form-badge {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+        }
+
+        .form-v { background-color: #10B981; }
+        .form-e { background-color: #F59E0B; }
+        .form-d { background-color: #EF4444; }
+
+        /* Community */
+        .community-card {
+            text-align: center;
+            background: linear-gradient(to right, #ffffff, #fafafa);
+        }
+
         .links-container {
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 0.85rem;
             flex-wrap: wrap;
-            margin-top: 1rem;
+            margin-top: 1.25rem;
         }
+
         .btn {
             background-color: var(--rojo-river);
             color: var(--blanco);
             padding: 0.75rem 1.5rem;
             text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: background 0.3s;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(227, 6, 19, 0.25);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
+
         .btn:hover {
-            background-color: #B51F14;
+            background-color: var(--rojo-oscuro);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(227, 6, 19, 0.35);
         }
+
         footer {
             text-align: center;
-            padding: 1.5rem;
+            padding: 2rem 1rem;
             background-color: var(--negro);
-            color: var(--blanco);
-            margin-top: 2rem;
-            font-size: 0.9rem;
+            color: var(--gris-medio);
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            border-top: 4px solid var(--rojo-river);
         }
     </style>
 </head>
 <body>
 
     <header>
+        <span class="header-badge">Portal River Plate</span>
         <h1>SINCASSETTE</h1>
-        <p>Portal Oficial | La era del León en el Más Grande</p>
+        <p>Estadísticas completas, actualidad del plantel y pasión millonaria</p>
     </header>
 
     <nav>
         <a href="#proximo">Próximo Partido</a>
-        <a href="#actualidad">Plantel & DT</a>
-        <a href="#posiciones">Tablas & Posiciones</a>
+        <a href="#actualidad">Plantel & Mercado</a>
+        <a href="#posiciones">Tablas Clausura</a>
+        <a href="#anual">Tabla Anual</a>
+        <a href="#promedios">Promedios</a>
         <a href="#comunidad">Comunidad</a>
     </nav>
 
     <main>
-        <!-- Próximo Partido -->
-        <section id="proximo">
-            <h2>Próximo Encuentro</h2>
-            <div class="match-card">
-               <div>
-                    <h3>RIVER PLATE</h3>
-               </div>
-               <div>
-                    <p>VS</p>
-                    <small>Sábado 19/09 - 19:00 hs</small><br>
-                    <small>Torneo Clausura | Fecha 10 (Local)</small><br>
-                    <small>Estadio Mâs Monumental</small>
-               </div>
-               <div>
-                    <h3>HURACÁN</h3>
-               </div>
-            </div>
-        </section>
+        <div class="grid-dashboard">
+            <!-- Próximo Partido -->
+            <section id="proximo" style="margin-bottom:0;">
+                <div class="section-header">
+                    <h2>Próximo Encuentro</h2>
+                </div>
+                <div class="match-card">
+                    <span style="font-size: 0.75rem; letter-spacing: 1px; color: #94A3B8; text-transform: uppercase;">Torneo Clausura | Fecha 10</span>
+                    <div class="match-teams">
+                        <div class="team-name">RIVER PLATE</div>
+                        <div class="match-vs-badge">VS</div>
+                        <div class="team-name">HURACÁN</div>
+                    </div>
+                    <div class="match-meta">
+                        🗓️ <strong>Sábado 19/09 - 19:00 hs</strong> &nbsp;|&nbsp; 🏟️ <strong>Estadio Monumental</strong>
+                    </div>
+                </div>
 
-        <!-- Plantel & DT -->
-        <section id="actualidad">
-            <h2>Cuerpo Técnico y Actualidad del Plantel</h2>
-            <p><strong>Racha:</strong> Interinato de Leonardo Ponzio con 3 victorias consecutivas repitiendo equipo y una racha de 5 partidos invicto en el Torneo Clausura.</p>
-            <p><strong>Parte Médico:</strong> Tobías Andrada y Tomás Galván terminaron con molestias físicas en el último compromiso frente a Atlético Tucumán (victoria 2-1 con goles de Andrada y Thiago Almada), sin revestir gravedad.</p>
-        </section>
+                <div class="news-list" style="margin-top: 1.25rem;">
+                    <div class="news-item">
+                        <span class="news-tag">Racha del Plantel</span>
+                        <div class="news-text">Interinato de Leonardo Ponzio con 3 victorias consecutivas repitiendo equipo y una racha de 5 partidos invicto en el Torneo Clausura.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Parte Médico y Mercado de Pases -->
+            <section style="margin-bottom:0;">
+                <div class="section-header">
+                    <h2>Actualidad & Mercado</h2>
+                </div>
+                <div class="news-list">
+                    <div class="news-item">
+                        <span class="news-tag">Parte Médico • Aníbal Moreno</span>
+                        <div class="news-text"><strong>Aníbal Moreno</strong> continúa marginado cursando una <strong>discopatía lumbar</strong> que lo mantiene en recuperación.</div>
+                    </div>
+                    <div class="news-item">
+                        <span class="news-tag">Mercado de Pases</span>
+                        <div class="news-text">Seguimiento fuerte: el **Inter de Milán** está interesado en <strong>Tobías Andrada</strong>.</div>
+                    </div>
+                    <div class="news-item">
+                        <span class="news-tag">Parte Médico Reciente</span>
+                        <div class="news-text">Tobías Andrada y Tomás Galván terminaron con molestias físicas en el último compromiso frente a Atlético Tucumán (victoria 2-1 con goles de Andrada y Thiago Almada), sin revestir gravedad.</div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
         <!-- Tablas de Posiciones -->
         <section id="posiciones">
-            <h2>Tablas de Posiciones y Estadísticas</h2>
+            <div class="section-header">
+                <h2>Torneo Clausura (Fecha 9)</h2>
+            </div>
 
-            <h3>Torneo Clausura - Grupo B (Fecha 9)</h3>
+            <h3>Grupo A</h3>
             <div class="table-container">
                 <table>
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Equipo</th>
+                            <th>Equipos</th>
                             <th>PTS</th>
                             <th>J</th>
                             <th>Gol</th>
@@ -199,35 +457,78 @@
                             <th>G</th>
                             <th>E</th>
                             <th>P</th>
+                            <th>Ult. 5</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>1</td><td>Argentinos</td><td>18</td><td>9</td><td>13:8</td><td>5</td><td>5</td><td>3</td><td>1</td></tr>
-                        <tr><td>2</td><td>Sarmiento</td><td>16</td><td>9</td><td>16:13</td><td>3</td><td>5</td><td>1</td><td>3</td></tr>
-                        <tr><td>3</td><td>Gimnasia</td><td>16</td><td>9</td><td>13:13</td><td>0</td><td>5</td><td>1</td><td>3</td></tr>
-                        <tr><td>4</td><td>Central</td><td>15</td><td>9</td><td>10:8</td><td>2</td><td>4</td><td>3</td><td>2</td></tr>
-                        <tr><td>5</td><td>Independiente...</td><td>14</td><td>9</td><td>13:13</td><td>0</td><td>4</td><td>2</td><td>3</td></tr>
-                        <tr><td>6</td><td>Belgrano</td><td>13</td><td>9</td><td>9:6</td><td>3</td><td>3</td><td>4</td><td>2</td></tr>
-                        <tr class="highlight"><td>7</td><td>River</td><td>13</td><td>9</td><td>12:10</td><td>2</td><td>4</td><td>1</td><td>4</td></tr>
-                        <tr><td>8</td><td>Atl. Tucumán</td><td>13</td><td>9</td><td>7:5</td><td>2</td><td>3</td><td>4</td><td>2</td></tr>
-                        <tr><td>9</td><td>Huracán</td><td>13</td><td>9</td><td>8:7</td><td>1</td><td>3</td><td>4</td><td>2</td></tr>
-                        <tr><td>10</td><td>Tigre</td><td>12</td><td>9</td><td>7:6</td><td>1</td><td>3</td><td>3</td><td>3</td></tr>
-                        <tr><td>11</td><td>Barracas</td><td>12</td><td>9</td><td>5:6</td><td>-1</td><td>3</td><td>3</td><td>3</td></tr>
-                        <tr><td>12</td><td>Banfield</td><td>8</td><td>9</td><td>9:14</td><td>-5</td><td>2</td><td>2</td><td>5</td></tr>
-                        <tr><td>13</td><td>Estudiantes ...</td><td>6</td><td>9</td><td>4:11</td><td>-7</td><td>1</td><td>3</td><td>5</td></tr>
-                        <tr><td>14</td><td>Aldosivi</td><td>5</td><td>9</td><td>11:16</td><td>-5</td><td>1</td><td>2</td><td>6</td></tr>
-                        <tr><td>15</td><td>Racing</td><td>5</td><td>9</td><td>8:15</td><td>-7</td><td>1</td><td>2</td><td>6</td></tr>
+                        <tr><td>1</td><td>Instituto</td><td>19</td><td>9</td><td>10:6</td><td>4</td><td>6</td><td>1</td><td>2</td><td><span class="form-badge form-v">V</span></td></tr>
+                        <tr><td>2</td><td>Vélez</td><td>17</td><td>9</td><td>12:7</td><td>5</td><td>4</td><td>5</td><td>0</td><td><span class="form-badge form-v">V</span></td></tr>
+                        <tr><td>3</td><td>Defensa</td><td>17</td><td>9</td><td>11:9</td><td>2</td><td>5</td><td>2</td><td>2</td><td><span class="form-badge form-d">D</span></td></tr>
+                        <tr><td>4</td><td>Gimnasia (M)</td><td>16</td><td>9</td><td>14:9</td><td>5</td><td>5</td><td>1</td><td>3</td><td><span class="form-badge form-e">E</span></td></tr>
+                        <tr><td>5</td><td>Boca Jrs.</td><td>14</td><td>9</td><td>12:11</td><td>1</td><td>3</td><td>5</td><td>1</td><td><span class="form-badge form-e">E</span></td></tr>
+                        <tr><td>6</td><td>Independiente</td><td>14</td><td>9</td><td>8:7</td><td>1</td><td>4</td><td>2</td><td>3</td><td><span class="form-badge form-v">V</span></td></tr>
+                        <tr><td>7</td><td>Lanús</td><td>13</td><td>9</td><td>11:8</td><td>3</td><td>4</td><td>1</td><td>4</td><td><span class="form-badge form-v">V</span></td></tr>
+                        <tr><td>8</td><td>Unión</td><td>13</td><td>9</td><td>16:14</td><td>2</td><td>4</td><td>1</td><td>4</td><td><span class="form-badge form-v">V</span></td></tr>
+                        <tr><td>9</td><td>Newell's</td><td>13</td><td>9</td><td>10:8</td><td>2</td><td>3</td><td>4</td><td>2</td><td><span class="form-badge form-e">E</span></td></tr>
+                        <tr><td>10</td><td>San Lorenzo</td><td>11</td><td>9</td><td>4:6</td><td>-2</td><td>3</td><td>2</td><td>4</td><td><span class="form-badge form-e">E</span></td></tr>
+                        <tr><td>11</td><td>Estudiantes</td><td>10</td><td>9</td><td>9:9</td><td>0</td><td>3</td><td>1</td><td>5</td><td><span class="form-badge form-d">D</span></td></tr>
+                        <tr><td>12</td><td>Riestra</td><td>9</td><td>9</td><td>8:10</td><td>-2</td><td>2</td><td>3</td><td>4</td><td><span class="form-badge form-d">D</span></td></tr>
+                        <tr><td>13</td><td>Platense</td><td>9</td><td>9</td><td>9:14</td><td>-5</td><td>2</td><td>3</td><td>4</td><td><span class="form-badge form-e">E</span></td></tr>
+                        <tr><td>14</td><td>Talleres</td><td>8</td><td>9</td><td>10:14</td><td>-4</td><td>2</td><td>2</td><td>5</td><td><span class="form-badge form-d">D</span></td></tr>
+                        <tr><td>15</td><td>Central Córd...</td><td>7</td><td>9</td><td>5:11</td><td>-6</td><td>2</td><td>1</td><td>6</td><td><span class="form-badge form-d">D</span></td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <h3 style="margin-top: 2rem;">Tabla Anual</h3>
+            <h3 style="margin-top: 2rem;">Grupo B</h3>
             <div class="table-container">
                 <table>
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Equipo</th>
+                            <th>Equipos</th>
+                            <th>PTS</th>
+                            <th>J</th>
+                            <th>Gol</th>
+                            <th>+/-</th>
+                            <th>G</th>
+                            <th>E</th>
+                            <th>P</th>
+                            <th>Ult. 5</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Argentinos</td><td>18</td><td>9</td><td>13:8</td><td>5</td><td>5</td><td>3</td><td>1</td><td><span class="form-badge form-e">E</span></td></tr>
+                        <tr><td>2</td><td>Sarmiento</td><td>16</td><td>9</td><td>16:13</td><td>3</td><td>5</td><td>1</td><td>3</td><td><span class="form-badge form-v">V</span></td></tr>
+                        <tr><td>3</td><td>Gimnasia</td><td>16</td><td>9</td><td>13:13</td><td>0</td><td>5</td><td>1</td><td>3</td><td><span class="form-badge form-v">V</span></td></tr>
+                        <tr><td>4</td><td>Central</td><td>15</td><td>9</td><td>10:8</td><td>2</td><td>4</td><td>3</td><td>2</td><td><span class="form-badge form-v">V</span></td></tr>
+                        <tr><td>5</td><td>Independient...</td><td>14</td><td>9</td><td>13:13</td><td>0</td><td>4</td><td>2</td><td>3</td><td><span class="form-badge form-d">D</span></td></tr>
+                        <tr><td>6</td><td>Belgrano</td><td>13</td><td>9</td><td>9:6</td><td>3</td><td>3</td><td>4</td><td>2</td><td><span class="form-badge form-e">E</span></td></tr>
+                        <tr class="highlight"><td>7</td><td>River Plate</td><td>13</td><td>9</td><td>12:10</td><td>2</td><td>4</td><td>1</td><td>4</td><td><span class="form-badge form-v">V</span></td></tr>
+                        <tr><td>8</td><td>Atl. Tucumán</td><td>13</td><td>9</td><td>7:5</td><td>2</td><td>3</td><td>4</td><td>2</td><td><span class="form-badge form-v">V</span></td></tr>
+                        <tr><td>9</td><td>Huracán</td><td>13</td><td>9</td><td>8:7</td><td>1</td><td>3</td><td>4</td><td>2</td><td><span class="form-badge form-e">E</span></td></tr>
+                        <tr><td>10</td><td>Tigre</td><td>12</td><td>9</td><td>7:6</td><td>1</td><td>3</td><td>3</td><td>3</td><td><span class="form-badge form-d">D</span></td></tr>
+                        <tr><td>11</td><td>Barracas</td><td>12</td><td>9</td><td>5:6</td><td>-1</td><td>3</td><td>3</td><td>3</td><td><span class="form-badge form-e">E</span></td></tr>
+                        <tr><td>12</td><td>Banfield</td><td>8</td><td>9</td><td>9:14</td><td>-5</td><td>2</td><td>2</td><td>5</td><td><span class="form-badge form-e">E</span></td></tr>
+                        <tr><td>13</td><td>Estudiantes ...</td><td>6</td><td>9</td><td>4:11</td><td>-7</td><td>1</td><td>3</td><td>5</td><td><span class="form-badge form-d">D</span></td></tr>
+                        <tr><td>14</td><td>Aldosivi</td><td>5</td><td>9</td><td>11:16</td><td>-5</td><td>1</td><td>2</td><td>6</td><td><span class="form-badge form-v">V</span></td></tr>
+                        <tr><td>15</td><td>Racing</td><td>5</td><td>9</td><td>8:15</td><td>-7</td><td>1</td><td>2</td><td>6</td><td><span class="form-badge form-d">D</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Tabla Anual Completa -->
+        <section id="anual">
+            <div class="section-header">
+                <h2>Tabla Anual (Fechas 1 a 25)</h2>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Equipos</th>
                             <th>PTS</th>
                             <th>J</th>
                             <th>Gol</th>
@@ -238,60 +539,110 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>1</td><td>Independient...</td><td>48</td><td>25</td><td>42:28</td><td>14</td><td>14</td><td>6</td><td>5</td></tr>
+                        <tr><td>1</td><td>Independiente</td><td>48</td><td>25</td><td>42:28</td><td>14</td><td>14</td><td>6</td><td>5</td></tr>
                         <tr><td>2</td><td>Argentinos</td><td>47</td><td>25</td><td>30:21</td><td>9</td><td>13</td><td>8</td><td>4</td></tr>
                         <tr><td>3</td><td>Vélez</td><td>45</td><td>25</td><td>30:19</td><td>11</td><td>11</td><td>12</td><td>2</td></tr>
                         <tr><td>4</td><td>Boca Jrs.</td><td>44</td><td>25</td><td>34:20</td><td>14</td><td>11</td><td>11</td><td>3</td></tr>
                         <tr><td>5</td><td>Central</td><td>43</td><td>25</td><td>30:24</td><td>6</td><td>12</td><td>7</td><td>6</td></tr>
-                        <tr class="highlight"><td>6</td><td>River</td><td>42</td><td>25</td><td>34:22</td><td>12</td><td>13</td><td>3</td><td>9</td></tr>
+                        <tr class="highlight"><td>6</td><td>River Plate</td><td>42</td><td>25</td><td>34:22</td><td>12</td><td>13</td><td>3</td><td>9</td></tr>
                         <tr><td>7</td><td>Gimnasia</td><td>42</td><td>25</td><td>32:32</td><td>0</td><td>13</td><td>3</td><td>9</td></tr>
                         <tr><td>8</td><td>Estudiantes</td><td>41</td><td>25</td><td>28:16</td><td>12</td><td>12</td><td>5</td><td>8</td></tr>
                         <tr><td>9</td><td>Instituto</td><td>40</td><td>25</td><td>27:23</td><td>4</td><td>12</td><td>4</td><td>9</td></tr>
+                        <tr><td>10</td><td>Belgrano</td><td>39</td><td>25</td><td>26:19</td><td>7</td><td>10</td><td>9</td><td>6</td></tr>
+                        <tr><td>11</td><td>Independiente (R)</td><td>38</td><td>25</td><td>32:27</td><td>5</td><td>10</td><td>8</td><td>7</td></tr>
+                        <tr><td>12</td><td>Lanús</td><td>37</td><td>25</td><td>29:23</td><td>6</td><td>10</td><td>7</td><td>8</td></tr>
+                        <tr><td>13</td><td>Defensa</td><td>36</td><td>25</td><td>29:30</td><td>-1</td><td>9</td><td>9</td><td>7</td></tr>
+                        <tr><td>14</td><td>Huracán</td><td>35</td><td>25</td><td>25:20</td><td>5</td><td>8</td><td>11</td><td>6</td></tr>
+                        <tr><td>15</td><td>Gimnasia (M)</td><td>35</td><td>25</td><td>28:31</td><td>-3</td><td>10</td><td>5</td><td>10</td></tr>
+                        <tr><td>16</td><td>Sarmiento</td><td>35</td><td>25</td><td>29:33</td><td>-4</td><td>11</td><td>2</td><td>12</td></tr>
+                        <tr><td>17</td><td>Unión</td><td>34</td><td>25</td><td>40:34</td><td>6</td><td>9</td><td>7</td><td>9</td></tr>
+                        <tr><td>18</td><td>Talleres</td><td>34</td><td>25</td><td>27:27</td><td>0</td><td>9</td><td>7</td><td>9</td></tr>
+                        <tr><td>19</td><td>Barracas</td><td>33</td><td>25</td><td>20:21</td><td>-1</td><td>8</td><td>9</td><td>8</td></tr>
+                        <tr><td>20</td><td>San Lorenzo</td><td>33</td><td>25</td><td>18:20</td><td>-2</td><td>8</td><td>9</td><td>8</td></tr>
+                        <tr><td>21</td><td>Tigre</td><td>32</td><td>25</td><td>25:21</td><td>4</td><td>7</td><td>11</td><td>7</td></tr>
+                        <tr><td>22</td><td>Newell's</td><td>28</td><td>25</td><td>25:35</td><td>-10</td><td>6</td><td>10</td><td>9</td></tr>
+                        <tr><td>23</td><td>Atl. Tucumán</td><td>27</td><td>25</td><td>22:25</td><td>-3</td><td>6</td><td>9</td><td>10</td></tr>
+                        <tr><td>24</td><td>Racing</td><td>26</td><td>25</td><td>25:30</td><td>-5</td><td>6</td><td>8</td><td>11</td></tr>
+                        <tr><td>25</td><td>Banfield</td><td>26</td><td>25</td><td>26:33</td><td>-7</td><td>7</td><td>5</td><td>13</td></tr>
+                        <tr><td>26</td><td>Platense</td><td>25</td><td>25</td><td>19:29</td><td>-10</td><td>5</td><td>10</td><td>10</td></tr>
+                        <tr><td>27</td><td>Central Córdoba</td><td>23</td><td>25</td><td>16:32</td><td>-16</td><td>6</td><td>5</td><td>14</td></tr>
+                        <tr><td>28</td><td>Riestra</td><td>20</td><td>25</td><td>13:22</td><td>-9</td><td>3</td><td>11</td><td>11</td></tr>
+                        <tr><td>29</td><td>Aldosivi</td><td>13</td><td>25</td><td>17:35</td><td>-18</td><td>1</td><td>10</td><td>14</td></tr>
+                        <tr><td>30</td><td>Estudiantes ...</td><td>11</td><td>25</td><td>9:35</td><td>-26</td><td>2</td><td>5</td><td>18</td></tr>
                     </tbody>
                 </table>
             </div>
+        </section>
 
-            <h3 style="margin-top: 2rem;">Tabla de Promedios (Descenso)</h3>
+        <!-- Tabla de Promedios / Relegation Completa -->
+        <section id="promedios">
+            <div class="section-header">
+                <h2>Tabla de Promedios (Descenso)</h2>
+            </div>
             <div class="table-container">
                 <table>
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Equipo</th>
+                            <th>Equipos</th>
                             <th>Prom</th>
                             <th>Pts</th>
                             <th>PJ</th>
-                            <th>24</th>
-                            <th>25</th>
-                            <th>26</th>
+                            <th>2024</th>
+                            <th>2025</th>
+                            <th>2026</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr><td>1</td><td>Boca Jrs.</td><td>1.765</td><td>173</td><td>98</td><td>67</td><td>62</td><td>44</td></tr>
-                        <tr class="highlight"><td>2</td><td>River</td><td>1.684</td><td>165</td><td>98</td><td>70</td><td>53</td><td>42</td></tr>
+                        <tr class="highlight"><td>2</td><td>River Plate</td><td>1.684</td><td>165</td><td>98</td><td>70</td><td>53</td><td>42</td></tr>
                         <tr><td>3</td><td>Vélez</td><td>1.643</td><td>161</td><td>98</td><td>76</td><td>40</td><td>45</td></tr>
                         <tr><td>4</td><td>Argentinos</td><td>1.633</td><td>160</td><td>98</td><td>56</td><td>57</td><td>47</td></tr>
                         <tr><td>5</td><td>Central</td><td>1.592</td><td>156</td><td>98</td><td>47</td><td>66</td><td>43</td></tr>
                         <tr><td>6</td><td>Racing</td><td>1.520</td><td>149</td><td>98</td><td>70</td><td>53</td><td>26</td></tr>
+                        <tr><td>7</td><td>Independiente</td><td>1.510</td><td>148</td><td>98</td><td>63</td><td>47</td><td>38</td></tr>
+                        <tr><td>8</td><td>Estudiantes</td><td>1.490</td><td>146</td><td>98</td><td>63</td><td>42</td><td>41</td></tr>
+                        <tr><td>9</td><td>Lanús</td><td>1.490</td><td>146</td><td>98</td><td>59</td><td>50</td><td>37</td></tr>
+                        <tr><td>10</td><td>Huracán</td><td>1.469</td><td>144</td><td>98</td><td>62</td><td>47</td><td>35</td></tr>
+                        <tr><td>11</td><td>Talleres</td><td>1.429</td><td>140</td><td>98</td><td>72</td><td>34</td><td>34</td></tr>
+                        <tr><td>12</td><td>Gimnasia (M)</td><td>1.400</td><td>35</td><td>25</td><td>0</td><td>0</td><td>35</td></tr>
+                        <tr><td>13</td><td>Independiente ...</td><td>1.398</td><td>137</td><td>98</td><td>46</td><td>43</td><td>48</td></tr>
+                        <tr><td>14</td><td>Unión</td><td>1.357</td><td>133</td><td>98</td><td>60</td><td>39</td><td>34</td></tr>
+                        <tr><td>15</td><td>Defensa</td><td>1.347</td><td>132</td><td>98</td><td>58</td><td>38</td><td>36</td></tr>
+                        <tr><td>16</td><td>Barracas</td><td>1.337</td><td>131</td><td>98</td><td>49</td><td>49</td><td>33</td></tr>
+                        <tr><td>17</td><td>San Lorenzo</td><td>1.316</td><td>129</td><td>98</td><td>45</td><td>51</td><td>33</td></tr>
+                        <tr><td>18</td><td>Gimnasia</td><td>1.306</td><td>128</td><td>98</td><td>48</td><td>38</td><td>42</td></tr>
+                        <tr><td>19</td><td>Instituto</td><td>1.296</td><td>127</td><td>98</td><td>53</td><td>34</td><td>40</td></tr>
+                        <tr><td>20</td><td>Belgrano</td><td>1.276</td><td>125</td><td>98</td><td>49</td><td>37</td><td>39</td></tr>
+                        <tr><td>21</td><td>Tigre</td><td>1.224</td><td>120</td><td>98</td><td>39</td><td>49</td><td>32</td></tr>
+                        <tr><td>22</td><td>Riestra</td><td>1.224</td><td>120</td><td>98</td><td>48</td><td>52</td><td>20</td></tr>
+                        <tr><td>23</td><td>Platense</td><td>1.194</td><td>117</td><td>98</td><td>57</td><td>35</td><td>25</td></tr>
+                        <tr><td>24</td><td>Atl. Tucumán</td><td>1.133</td><td>111</td><td>98</td><td>50</td><td>34</td><td>27</td></tr>
+                        <tr><td>25</td><td>Newell's</td><td>1.122</td><td>110</td><td>98</td><td>49</td><td>33</td><td>28</td></tr>
+                        <tr><td>26</td><td>Central Córdoba</td><td>1.092</td><td>107</td><td>98</td><td>42</td><td>42</td><td>23</td></tr>
+                        <tr><td>27</td><td>Sarmiento</td><td>1.071</td><td>105</td><td>98</td><td>35</td><td>35</td><td>35</td></tr>
+                        <tr><td>28</td><td>Banfield</td><td>1.041</td><td>102</td><td>98</td><td>41</td><td>35</td><td>26</td></tr>
+                        <tr><td>29</td><td>Aldosivi</td><td>0.807</td><td>46</td><td>57</td><td>0</td><td>33</td><td>13</td></tr>
+                        <tr><td>30</td><td>Estudiantes RC</td><td>0.440</td><td>11</td><td>25</td><td>0</td><td>0</td><td>11</td></tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
         <!-- Comunidad -->
-        <section id="comunidad" style="text-align: center;">
+        <section id="comunidad" class="community-card">
             <h2>Comunidad Sincassette</h2>
-            <p>¡Participá de la trivia y apoyá este espacio hecho a pulmón!</p>
+            <p style="color: #64748B; margin-top: 0.5rem;">¡Participá de la trivia y apoyá este espacio hecho a pulmón!</p>
             <div class="links-container">
-                <a href="https://tinyurl.com/sincassette-trivia" class="btn" target="_blank">Jugar Trivia</a>
-                <a href="https://www.instagram.com/ana.mdq.ok" class="btn" target="_blank">Instagram (@ana.mdq.ok)</a>
-                <a href="https://cafecito.app/sincassetteriver" class="btn" target="_blank">Cafecito</a>
+                <a href="https://tinyurl.com/sincassette-trivia" class="btn" target="_blank">🎮 Jugar Trivia</a>
+                <a href="https://www.instagram.com/ana.mdq.ok" class="btn" target="_blank">📸 Instagram (@ana.mdq.ok)</a>
+                <a href="https://cafecito.app/sincassetteriver" class="btn" target="_blank">☕ Cafecito</a>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>Hecho por Ana Mdq | Sincassette Portal</p>
+        <p>Hecho por Ana Mdq | Portal Oficial Sincassette</p>
     </footer>
 
 </body>
