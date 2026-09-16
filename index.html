@@ -21,25 +21,17 @@
         header {
             background-color: #000000;
             border-bottom: 3px solid #e50914;
-            padding: 15px 10px;
+            padding: 15px 0;
+            width: 100%;
             text-align: center;
         }
 
-        .header-inner {
-            max-width: 650px;
-            margin: 0 auto;
+        .header-content {
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 0 1rem;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
             gap: 10px;
-            flex-wrap: wrap;
         }
 
         .logo-text {
@@ -128,11 +120,9 @@
 <body>
 
     <header>
-        <div class="header-inner">
-            <div class="logo-container">
-                <span style="font-size: 1.4rem;">⚪🔴⚪</span>
-                <div class="logo-text">SIN<span>CASSETTE</span></div>
-            </div>
+        <div class="header-content">
+            <span style="font-size: 1.4rem;">⚪🔴⚪</span>
+            <div class="logo-text">SIN<span>CASSETTE</span></div>
         </div>
     </header>
 
