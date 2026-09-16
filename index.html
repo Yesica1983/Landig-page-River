@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sincassette | Portal Oficial River Plate</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,6 @@
             --river-gris-fondo: #F5F6F8;
             --river-gris-borde: #E2E8F0;
             
-            /* Indicadores limpios con el espíritu Millonario */
             --zona-clasificacion: rgba(227, 6, 19, 0.12);
             --zona-river-fila: rgba(227, 6, 19, 0.22);
             --zona-alerta: #FEE2E2;
@@ -35,9 +34,11 @@
             color: var(--river-negro);
             line-height: 1.5;
             padding-bottom: 2rem;
+            /* CORRECCIÓN: Evita desbordes horizontales forzados en navegadores in-app */
+            overflow-x: hidden;
         }
 
-        /* Header Estilo River */
+        /* Header Estilo River Ajustado */
         header {
             background-color: var(--river-negro);
             border-bottom: 5px solid var(--river-rojo);
@@ -47,12 +48,15 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            /* CORRECCIÓN: Asegura que el contenido interno respete los márgenes en Instagram */
+            width: 100%;
         }
 
         .logo-container {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            max-width: 100%;
         }
 
         .logo-text {
@@ -173,7 +177,6 @@
             background-color: #F8FAFC;
         }
 
-        /* Columna de posición con barra lateral roja de River */
         .pos-cell {
             font-weight: 800;
             width: 32px;
@@ -190,13 +193,11 @@
             background-color: var(--river-rojo);
         }
 
-        /* Fila clasificada a Playoffs / Copas con acento rojo River */
         tr.clasificado {
             background-color: var(--zona-clasificacion);
             font-weight: 600;
         }
 
-        /* Fila destacada exclusiva para River Plate */
         tr.highlight-river {
             background-color: var(--zona-river-fila) !important;
             font-weight: 800;
@@ -207,12 +208,10 @@
             color: var(--river-rojo-oscuro);
         }
 
-        /* Zona de descenso / alerta en tono sobrio */
         tr.descenso {
             background-color: var(--zona-alerta);
         }
 
-        /* Badges de Forma (V / E / D) con rojo River para victorias */
         .form-badge {
             display: inline-block;
             width: 20px;
@@ -229,7 +228,6 @@
         .form-e { background-color: #4A5568; }
         .form-d { background-color: #1A202C; }
 
-        /* Leyenda Inferior */
         .legend-footer {
             background-color: #F1F5F9;
             padding: 0.55rem 0.85rem;
@@ -323,7 +321,7 @@
             <p style="margin-top: 0.4rem;">✈️ <strong>Mercado:</strong> El <strong>Inter de Milán</strong> está interesado en <strong>Tobías Andrada</strong>.</p>
         </div>
 
-        <!-- TORNEO CLAUSURA: GRUPO A (Clasifican hasta el 8°) -->
+        <!-- TORNEO CLAUSURA: GRUPO A -->
         <section id="grupo-a" class="table-section">
             <div class="table-title">CLAUSURA - GRUPO A</div>
             <div class="table-container">
@@ -366,7 +364,7 @@
             </div>
         </section>
 
-        <!-- TORNEO CLAUSURA: GRUPO B (Clasifican hasta el 8°, con River destacado en rojo) -->
+        <!-- TORNEO CLAUSURA: GRUPO B -->
         <section id="grupo-b" class="table-section">
             <div class="table-title">CLAUSURA - GRUPO B</div>
             <div class="table-container">
@@ -539,7 +537,7 @@
     </main>
 
     <footer>
-        <p>Hecho por Ana Mdq | Sincassette</p>
+        <p>Hecho por Ana Mdq Cv — Sincassette</p>
     </footer>
 
 </body>
